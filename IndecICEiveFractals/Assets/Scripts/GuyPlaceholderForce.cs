@@ -4,11 +4,12 @@ public class GuyPlaceholderForce : MonoBehaviour
 {
     [SerializeField] Transform gBubble;
     [SerializeField] Vector3 vDistance;
-    [SerializeField] Vector3 vBlow;
+    public Vector3 vBlow;
     [SerializeField] float vBlowerPower = 10;
     [SerializeField] float vBlowerMove = 10;
     [SerializeField] Transform gBlower;
     [SerializeField] Rigidbody rbBubble;
+    [SerializeField] GuyBubble MBSGuyBubble;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +18,7 @@ public class GuyPlaceholderForce : MonoBehaviour
 
         gBubble = FindFirstObjectByType<GuyBubble>().transform;
         rbBubble = gBubble.GetComponent<Rigidbody>();
+        MBSGuyBubble = gBubble.GetComponent <GuyBubble>();
 
     }
 
@@ -30,6 +32,7 @@ public class GuyPlaceholderForce : MonoBehaviour
         vBlow = vBlow * vBlowerPower / vDistance.magnitude;
 
         rbBubble.AddForce(vBlow, ForceMode.Impulse);
+        MBSGuyBubble.vBlowTmp = vBlow;
 
 
         if (Input.GetKey(KeyCode.W))
