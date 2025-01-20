@@ -11,6 +11,7 @@ public class Cone_tf : MonoBehaviour
         {
             Vector3 toTarget = other.transform.position - transform.parent.position;
             forceVector = force * toTarget;
+            forceVector = new Vector3(forceVector.x, forceVector.y, 0);
 
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
 

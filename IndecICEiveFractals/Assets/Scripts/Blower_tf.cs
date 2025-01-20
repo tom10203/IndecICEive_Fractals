@@ -6,8 +6,9 @@ public class Blower_tf : MonoBehaviour
     public Camera cam;
     public Transform blower;
     Rigidbody blowerRb;
-    bool stationary = false;
+    public bool stationary = false;
     Vector3 offset;
+    bool setOffset = true;
 
     private void Start()
     {
@@ -21,15 +22,22 @@ public class Blower_tf : MonoBehaviour
 
         transform.position = v3;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            ToggleStationary();
-            offset = blower.position - transform.position;
+            stationary = true;
+            blowerRb.isKinematic = true;
+            if (setOffset)
+            {
+                offset = blower.position - transform.position;
+                setOffset = false;
+            }
             
         }
-        else if (Input.GetMouseButtonUp(0))
+        else
         {
-            ToggleStationary();
+            stationary = false;
+            blowerRb.isKinematic = false;
+            setOffset = true;
         }
 
         if (stationary)
