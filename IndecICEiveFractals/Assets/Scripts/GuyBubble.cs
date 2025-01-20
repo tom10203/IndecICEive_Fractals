@@ -12,11 +12,15 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] float vForceOscillationTime=1;
     [SerializeField] float vOscilAmount=.2f;
     [SerializeField] float vOscilTimer;
+    [SerializeField] float vOscilCycle;
+    [SerializeField] float vOscilTimerMax;
     [SerializeField] float vOsciAmtTmp;
     [SerializeField] float vWobbleX;
     [SerializeField] float vWobbleY;   
     [SerializeField] float vWobbleZ;
+    [SerializeField] float vOscilLowerForceLimit;
     public Vector3 vBlowTmp;
+    public Vector3 vBlowTmpAtLastImpulse;
 
     //brownian motion varaibles
     [SerializeField] Transform gResistance;
@@ -25,6 +29,7 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] float vResistance;
     [SerializeField] float vResistInterval;
     [SerializeField] Rigidbody rb;
+    [SerializeField] Vector3 vResistOffset;
 
 
     //Bubble Health
@@ -32,6 +37,7 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] float vBubbleMaxHealth;
     [SerializeField] float vBubbleColorFractionMin;
     [SerializeField] Color cBubbleColour;
+    [SerializeField] Cone_tf MBSCone_tf;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,15 +45,35 @@ public class GuyBubble : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody>();
-        cBubbleColour = GetComponent<Color>();  
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        FnOscilate();
 
-        FnBrownian();
+       
+        // check to see if there is significant force on the bubble
+        if (vBlowTmp.magnitude > vOscilLowerForceLimit )
+        {
+
+            vOscilTimer = vOscilTimerMax;
+
+
+        }
+
+        // oscilates if there is force or the aftermath of force
+        if (vOscilTimer > 0)
+        {
+            FnOscilate();
+            FnBrownian();
+            vOscilTimer -= Time.deltaTime;
+
+
+        }
+
+        //random motion
+        
        
 
         
@@ -56,21 +82,25 @@ public class GuyBubble : MonoBehaviour
 
     void FnOscilate()
     {
+        // oscillation timer speed set
+        vOscilCycle += (Time.deltaTime * vBlowTmpAtLastImpulse.magnitude *(vOscilTimer/vOscilTimerMax) * vOscillationSpeedBase * vForceOscillationTime);
 
-        vOscilTimer += (Time.deltaTime * vBlowTmp.magnitude * vOscillationSpeedBase * vForceOscillationTime);
-
+        //Oscillint ampulitdue
         vOsciAmtTmp = vForceOscillation / vBlowTmp.magnitude;
 
         if (vOsciAmtTmp > 1)
         { vOsciAmtTmp = 1; }
-        vOsciAmtTmp *= vOscilAmount;
+        vOsciAmtTmp *= vOscilAmount * vOscilTimer/vOscilTimerMax;
 
-
-        vWobbleX = 1 + (Mathf.Sin(vOscilTimer) * vOsciAmtTmp);
-        vWobbleZ = 1 + (Mathf.Sin(vOscilTimer) * -vOsciAmtTmp);
-        vWobbleY = 1 + (Mathf.Cos(vOscilTimer) * vOsciAmtTmp);
+        //Wobble on all 3 axix according to sine curve - change size
+        vWobbleX = 1 + (Mathf.Sin(vOscilCycle) * vOsciAmtTmp);
+        vWobbleZ = 1 + (Mathf.Sin(vOscilCycle) * -vOsciAmtTmp);
+        vWobbleY = 1 + (Mathf.Cos(vOscilCycle) * vOsciAmtTmp);
 
         transform.localScale = new Vector3(vWobbleX, vWobbleY, vWobbleZ);
+
+
+
     }
 
 
@@ -80,16 +110,16 @@ public class GuyBubble : MonoBehaviour
 float vBrownianTimer = Mathf.Max(Mathf.Sin(vOscilTimer*vResistInterval),0);
         // push positon orbits
 
-        gResistance.position = transform.position + new Vector3(  Mathf.Sin(vOscilTimer* vResistPointMoveSpeed),0,Mathf.Cos(vOscilTimer * vResistPointMoveSpeed));
+        gResistance.position = transform.position + new Vector3(  Mathf.Sin(vOscilCycle * vResistPointMoveSpeed),Mathf.Cos(vOscilCycle * vResistPointMoveSpeed),0);
 
 
 
- // resistance inteval modifies the timer
+
         // apply force
         
         
-        Vector3 vResistOffset = (gResistance.localPosition).normalized * vResistance * vBlowTmp.magnitude;
-        vResistOffset.y = 0;   
+       vResistOffset = (gResistance.position).normalized * vResistance * vBlowTmpAtLastImpulse.magnitude * vOscilTimer / vOscilTimerMax;
+        vResistOffset.z = 0;   
 
         rb.AddForce(-vResistOffset,ForceMode.Impulse);
 
@@ -97,14 +127,16 @@ float vBrownianTimer = Mathf.Max(Mathf.Sin(vOscilTimer*vResistInterval),0);
     }
 
     public void FnHealthChange(float vHitTmp)
-
+        // routine reduces health and changes the colour of the bubble to red as healh reduces, nd makes it more translucent.
     {
         vBubbleHealth -= vHitTmp;
 
         cBubbleColour.a = vBubbleColorFractionMin + (1- vBubbleColorFractionMin) * (vBubbleHealth/vBubbleMaxHealth);
+        cBubbleColour.b = vBubbleHealth / vBubbleMaxHealth;
+        cBubbleColour.g = vBubbleHealth / vBubbleMaxHealth;
+        GetComponent<Material>().color = cBubbleColour;
 
 
-        
     }
 
 }
