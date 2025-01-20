@@ -6,7 +6,7 @@ public class Blower_tf : MonoBehaviour
     public Camera cam;
     public Transform blower;
     Rigidbody blowerRb;
-    bool stationary = false;
+    public bool stationary = false;
     Vector3 offset;
 
     private void Start()
