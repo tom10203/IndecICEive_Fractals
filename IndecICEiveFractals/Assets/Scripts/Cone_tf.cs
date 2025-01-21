@@ -13,6 +13,7 @@ public class Cone_tf : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        
         if (other.gameObject.layer == 6)
         {
             Vector3 toTarget = other.transform.position - transform.parent.position;
@@ -33,14 +34,13 @@ public class Cone_tf : MonoBehaviour
 
             otherRb.AddForce(forceVector);
             GuyBubble.vBlowTmp = forceVector;
-
+            GuyBubble.vBlowTmpAtLastImpulse = forceVector;
+           
         }
 
 
-
-
-
     }
+
     private void OnTriggerExit(Collider other)
     {
         GuyBubble.vBlowTmp = Vector3.zero;
