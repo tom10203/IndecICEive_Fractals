@@ -5,7 +5,8 @@ public class MBSResourceGuy : MonoBehaviour
 {
 
     [SerializeField] int vResouceNo;
-    [SerializeField] bool isAttached = false;
+    [SerializeField] int vResourceScore;
+    public bool isAttached = false;
     [SerializeField] Transform gBubble;
     [SerializeField] Vector3 vOffset;
     [SerializeField] Rigidbody rb;
@@ -22,6 +23,16 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] Transform vSlot2;
     [SerializeField] Transform vSlot3;
 
+    [SerializeField] Transform gBase;
+
+    [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
+    [SerializeField] Collider Collider;
+    [SerializeField] Transform vHitShow;
+    [SerializeField] int vHitLayer;
+    [SerializeField] int vHitLayer2;
+    [SerializeField] GameManager GameManager;
+    public bool isInBase =false;
+    [SerializeField] GameObject vSelf;
 
     private void Start()
     {
@@ -31,8 +42,12 @@ public class MBSResourceGuy : MonoBehaviour
         vSlot1 = gBubble.transform.Find("ResourceSlot1");
         vSlot2 = gBubble.transform.Find("ResourceSlot2");
         vSlot3 = gBubble.transform.Find("ResourceSlot3");
+        gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
+        MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
+        GuyBubble.vResourcesCarried = 0;
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 
-
+        //Collider = GetComponent<SphereCollider>();    
     }
 
 
@@ -51,6 +66,7 @@ public class MBSResourceGuy : MonoBehaviour
             }
 
            vPosTmp = transform.localPosition;
+
             if (vPosTmp.magnitude > vCentreLimit)
             {
                 vPosTmp *= (1 - (vAttractionRate * Time.deltaTime)); 
@@ -58,8 +74,38 @@ public class MBSResourceGuy : MonoBehaviour
                 transform.localPosition = vPosTmp;
             }
 
+           
+
 
         }
+
+        if (isInBase)
+        {
+
+            vPosTmp = transform.localPosition;
+            float vDist = vPosTmp.magnitude;
+
+            if (vDist > vCentreLimit)
+                
+            {
+                vPosTmp *= (1 - (vAttractionRate * Time.deltaTime));
+
+                transform.localPosition = vPosTmp;
+
+                Debug.Log("Resource has to get closer");
+            }
+
+            else
+            {
+                Debug.Log("Resource Destroyed");
+                GameManager.updateUI(vResourceScore, 0);
+                Destroy(gameObject);
+
+
+            }
+
+        }
+
 
 
     }
@@ -68,51 +114,64 @@ public class MBSResourceGuy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        vHitShow = other.transform;
+        vHitLayer = other.gameObject.layer;
         // if player touches the resource
         if (other.gameObject.layer == 6)
 
-        { 
-        
-        isAttached = true;
-            vBubbleNewSize = GuyBubble.vSize + vSizeChange;
-            GuyBubble.vBlowTmp = new Vector3(1,0,0);
-            GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
+        {
+            Debug.Log("Current Parent " + transform.parent);
 
-            if (GuyBubble.vResourcesCarried == 3)
+            if (transform.parent.name == "ResourceParent")
             {
-                GuyBubble.FnBurst();
+                {
+                    // Collider.enabled = false;
+                    isAttached = true;
+                    vBubbleNewSize = GuyBubble.vSize + vSizeChange;
+                    GuyBubble.vBlowTmp = new Vector3(1, 0, 0);
+                    GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
+
+                    Debug.Log("Checking for slots");
+
+                   if (GuyBubble.vResourcesCarried == 3)
+                    {
+                        MBSBubbleEnemyInteraction.FnBurst();
+
+                    }
+
+                    if (GuyBubble.vResourcesCarried == 2)
+                    {
+                        GuyBubble.vResourcesCarried = 3;
+                        transform.parent = vSlot3;
+
+                    }
+
+                    if (GuyBubble.vResourcesCarried == 1)
+                    {
+                        GuyBubble.vResourcesCarried = 2;
+                        transform.parent = vSlot2;
+
+                    }
+                    if (GuyBubble.vResourcesCarried == 0)
+                    {
+                        GuyBubble.vResourcesCarried = 1;
+                        transform.parent = vSlot1;
+
+                    }
+                    
+                   
 
 
-            }
 
-            if (GuyBubble.vResourcesCarried == 2)
-            {
-                GuyBubble.vResourcesCarried = 3;
-                GuyBubble.vCollect[2] = vResouceNo;
-                transform.parent = vSlot3;
 
-            }
 
-            if (GuyBubble.vResourcesCarried == 1)
-            {
-                GuyBubble.vResourcesCarried = 2;
-                GuyBubble.vCollect[1] = vResouceNo;
-                transform.parent = vSlot2;
-            }
-
-            
-
-           
-            if (GuyBubble.vResourcesCarried == 0)
-            {
-                GuyBubble.vResourcesCarried = 1;
-                GuyBubble.vCollect[0] = vResouceNo;
-                transform.parent = vSlot1;
-            }
-
-        }
-                
-                
                 }
+
+
+            }
+        }
+    }
+
+   
+
 }
