@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MBSResourceGuy : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] Vector3 vPosTmp;
     [SerializeField] float vSizeChange =.5f;
     [SerializeField] Vector3 vSizeStart;
+    [SerializeField] Transform vSlot1;
+    [SerializeField] Transform vSlot2;
+    [SerializeField] Transform vSlot3;
 
 
     private void Start()
@@ -24,6 +28,11 @@ public class MBSResourceGuy : MonoBehaviour
         gBubble = FindFirstObjectByType<GuyBubble>().transform;
         vSizeStart = transform.localScale;
         GuyBubble = gBubble.GetComponent<GuyBubble>();
+        vSlot1 = gBubble.transform.Find("ResourceSlot1");
+        vSlot2 = gBubble.transform.Find("ResourceSlot2");
+        vSlot3 = gBubble.transform.Find("ResourceSlot3");
+
+
     }
 
 
@@ -64,22 +73,16 @@ public class MBSResourceGuy : MonoBehaviour
         if (other.gameObject.layer == 6)
 
         { 
-        transform.parent = other.transform;
+        
         isAttached = true;
             vBubbleNewSize = GuyBubble.vSize + vSizeChange;
             GuyBubble.vBlowTmp = new Vector3(1,0,0);
             GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
-            if (GuyBubble.vResourcesCarried == 0)
-            {
-                GuyBubble.vResourcesCarried = 1;
-                GuyBubble.vCollect[0] = vResouceNo;
 
-            }
-
-            if (GuyBubble.vResourcesCarried == 1)
+            if (GuyBubble.vResourcesCarried == 3)
             {
-                GuyBubble.vResourcesCarried = 2;
-                GuyBubble.vCollect[1] = vResouceNo;
+                GuyBubble.FnBurst();
+
 
             }
 
@@ -87,17 +90,26 @@ public class MBSResourceGuy : MonoBehaviour
             {
                 GuyBubble.vResourcesCarried = 3;
                 GuyBubble.vCollect[2] = vResouceNo;
-
+                transform.parent = vSlot3;
 
             }
 
-            if (GuyBubble.vResourcesCarried == 3)
+            if (GuyBubble.vResourcesCarried == 1)
             {
-                GuyBubble.FnBurst();
-                
-
+                GuyBubble.vResourcesCarried = 2;
+                GuyBubble.vCollect[1] = vResouceNo;
+                transform.parent = vSlot2;
             }
 
+            
+
+           
+            if (GuyBubble.vResourcesCarried == 0)
+            {
+                GuyBubble.vResourcesCarried = 1;
+                GuyBubble.vCollect[0] = vResouceNo;
+                transform.parent = vSlot1;
+            }
 
         }
                 

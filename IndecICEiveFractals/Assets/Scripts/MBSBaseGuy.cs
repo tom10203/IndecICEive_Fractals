@@ -21,7 +21,7 @@ public class MBSBaseGuy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-     StartCoroutine(   FnTransfer());
+     FnTransfer();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -44,7 +44,7 @@ public class MBSBaseGuy : MonoBehaviour
 
     }
 
-    IEnumerator FnTransfer()
+    void FnTransfer()
     {
         if (GuyBubble.vResourcesCarried >2)
         {
@@ -53,7 +53,7 @@ public class MBSBaseGuy : MonoBehaviour
 
         }
 
-        yield return null;
+        
 
     }
 
