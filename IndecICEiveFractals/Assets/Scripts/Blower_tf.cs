@@ -14,13 +14,13 @@ public class Blower_tf : MonoBehaviour
     private void Start()
     {
         blowerRb = blower.GetComponent<Rigidbody>();
-        
+        z = (transform.position - cam.transform.position).magnitude;
 
 
     }
     void Update()
     {
-        z = (transform.position - cam.transform.position).magnitude;
+        
 
         var v3 = Input.mousePosition;
         v3.z = z;
