@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -40,12 +41,18 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] Cone_tf MBSCone_tf;
     [SerializeField] float vForceDamageThreshold;
     [SerializeField] float vForceDamageInc;
+    [SerializeField] float vInitialTranspart;
 
     //GameEnd
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
 
 
-    
+    // Collection/resource variables
+    public float vSize=1;
+    public int[] vCollect = new int[10];
+    public int vResourcesCarried;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,7 +62,7 @@ public class GuyBubble : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         MBSGameManagerGuy = FindFirstObjectByType<MBSGameManagerGuy>().GetComponent<MBSGameManagerGuy>();
-       
+        vInitialTranspart = GetComponent<Renderer>().material.color.a;
     }
 
     // Update is called once per frame
@@ -107,6 +114,12 @@ public class GuyBubble : MonoBehaviour
         vWobbleZ = 1 + (Mathf.Sin(vOscilCycle) * -vOsciAmtTmp);
         vWobbleY = 1 + (Mathf.Cos(vOscilCycle) * vOsciAmtTmp);
 
+        // scale to current bubble size base
+        vWobbleX *= vSize;
+        vWobbleY *= vSize;
+        vWobbleY *= vSize;
+
+
         transform.localScale = new Vector3(vWobbleX, vWobbleY, vWobbleZ);
 
 
@@ -157,7 +170,7 @@ public class GuyBubble : MonoBehaviour
     {
         vBubbleHealth -= vHitTmp;
 
-        cBubbleColour.a = vBubbleColorFractionMin + (1- vBubbleColorFractionMin) * (vBubbleHealth/vBubbleMaxHealth);
+        cBubbleColour.a = vInitialTranspart*( vBubbleColorFractionMin + (1- vBubbleColorFractionMin) * (vBubbleHealth/vBubbleMaxHealth));
         cBubbleColour.r = 1;
         cBubbleColour.b = vBubbleHealth / vBubbleMaxHealth;
         cBubbleColour.g = vBubbleHealth / vBubbleMaxHealth;
@@ -173,7 +186,7 @@ public class GuyBubble : MonoBehaviour
 
     }
 
-    void FnBurst()
+    public void FnBurst()
     {
 
         GetComponent<Renderer>().enabled = false;
