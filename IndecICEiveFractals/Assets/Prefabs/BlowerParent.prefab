@@ -4963,7 +4963,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &8497743068334109953
 HingeJoint:
@@ -5141,7 +5141,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!1 &7284536996919174160
 GameObject:
@@ -10165,7 +10165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cde2ea6623f6548b5f56a1a3b622c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 17.5
+  force: 20
   forceVector: {x: 0, y: 0, z: 0}
   GuyBubble: {fileID: 0}
 --- !u!64 &8743199217350715191
