@@ -185,7 +185,9 @@ public class GuyBubble : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        // detect enemy
+
+
         if (other.gameObject.layer == 7)
         {
 
