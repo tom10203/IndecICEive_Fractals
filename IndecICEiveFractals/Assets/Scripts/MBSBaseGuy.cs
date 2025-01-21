@@ -1,8 +1,28 @@
 using UnityEngine;
 
+using System.Collections;
+
 public class MBSBaseGuy : MonoBehaviour
 {
+    [SerializeField] GuyBubble GuyBubble;
+    [SerializeField] Transform gBubble;
+
+
+    private void Start()
+    {
+        gBubble = FindFirstObjectByType<GuyBubble>().transform;
+        
+        GuyBubble = gBubble.GetComponent<GuyBubble>();
+
+    }
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void OnCollisionEnter(Collision collision)
+    {
+     StartCoroutine(   FnTransfer());
+    }
 
     private void OnCollisionStay(Collision collision)
     {
@@ -12,7 +32,7 @@ public class MBSBaseGuy : MonoBehaviour
         {
             FnRecover();
 
-            FnTransfer();
+            
 
         }
     }
@@ -24,9 +44,16 @@ public class MBSBaseGuy : MonoBehaviour
 
     }
 
-    void FnTransfer()
+    IEnumerator FnTransfer()
     {
+        if (GuyBubble.vResourcesCarried >2)
+        {
 
+
+
+        }
+
+        yield return null;
 
     }
 

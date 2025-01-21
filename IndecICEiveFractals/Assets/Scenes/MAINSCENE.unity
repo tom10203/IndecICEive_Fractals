@@ -2819,6 +2819,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77be191cdc46b65499ce6f29c905e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vResouceNo: 0
+  isAttached: 0
+  gBubble: {fileID: 0}
+  vOffset: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  vForce: 1
+  GuyBubble: {fileID: 0}
+  vIncrement: 0.1
+  vBubbleNewSize: 0
+  vCentreLimit: 0.1
+  vAttractionRate: 0.5
+  vPosTmp: {x: 0, y: 0, z: 0}
+  vSizeChange: 0.3
+  vSizeStart: {x: 0, y: 0, z: 0}
 --- !u!135 &737154088
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2903,8 +2917,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.2, y: -3.741, z: 6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.28, y: 0.28, z: 0.28}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3162,7 +3176,7 @@ Transform:
   m_GameObject: {fileID: 808274903}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.95, y: -1.51, z: 6}
+  m_LocalPosition: {x: 12.52, y: -5.3, z: 4.33}
   m_LocalScale: {x: 2.09, y: 2.09, z: 2.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4573,7 +4587,11 @@ MonoBehaviour:
   MBSCone_tf: {fileID: 0}
   vForceDamageThreshold: 4
   vForceDamageInc: 5
+  vInitialTranspart: 0
   MBSGameManagerGuy: {fileID: 0}
+  vSize: 1
+  vCollect: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  vResourcesCarried: 0
 --- !u!135 &1330966015
 SphereCollider:
   m_ObjectHideFlags: 0
