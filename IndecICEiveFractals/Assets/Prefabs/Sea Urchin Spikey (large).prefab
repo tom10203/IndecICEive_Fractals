@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3827327091695039014}
   - component: {fileID: 8603925446089324693}
   - component: {fileID: 5654216509516083999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sea Urchin Spikey (large)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

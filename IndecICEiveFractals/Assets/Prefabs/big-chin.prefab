@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1195173007283756772}
   - component: {fileID: 7101443169683263974}
   - component: {fileID: 3562948095561512222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: big-chin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,3 +154,4 @@ MonoBehaviour:
   xRange: 10
   zRange: 10
   yRange: -10
+  velocity: {x: 0, y: 0, z: 0}

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Blower_tf : MonoBehaviour
 {
-    public float z;
+    [SerializeField] float z;
+
     public Camera cam;
     public Transform blower;
     Rigidbody blowerRb;
@@ -13,14 +14,20 @@ public class Blower_tf : MonoBehaviour
     private void Start()
     {
         blowerRb = blower.GetComponent<Rigidbody>();
+        z = (transform.position - cam.transform.position).magnitude;
+
+
     }
     void Update()
     {
-        var v3 = Input.mousePosition;
-        v3.z = 10.0f;
-        v3 = Camera.main.ScreenToWorldPoint(v3);
+        
 
-        transform.position = v3;
+        var v3 = Input.mousePosition;
+        v3.z = z;
+        v3 = cam.ScreenToWorldPoint(v3);
+
+
+        transform.position = new Vector3(v3.x, v3.y, 6f);
 
         if (Input.GetMouseButton(0))
         {
@@ -58,8 +65,4 @@ public class Blower_tf : MonoBehaviour
         blowerRb.isKinematic = !blowerRb.isKinematic;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print($"trigger enter");
-    }
 }

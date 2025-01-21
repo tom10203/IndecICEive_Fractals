@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1784264353101842617}
   - component: {fileID: 3109016122014767205}
   - component: {fileID: 6826653954291514420}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: smol-chin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
