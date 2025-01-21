@@ -38,6 +38,14 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] float vBubbleColorFractionMin;
     [SerializeField] Color cBubbleColour;
     [SerializeField] Cone_tf MBSCone_tf;
+    [SerializeField] float vForceDamageThreshold;
+    [SerializeField] float vForceDamageInc;
+
+    //GameEnd
+    [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
+
+
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,6 +53,8 @@ public class GuyBubble : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody>();
+
+        MBSGameManagerGuy = FindFirstObjectByType<MBSGameManagerGuy>().GetComponent<MBSGameManagerGuy>();
        
     }
 
@@ -56,9 +66,9 @@ public class GuyBubble : MonoBehaviour
         // check to see if there is significant force on the bubble
         if (vBlowTmp.magnitude > vOscilLowerForceLimit )
         {
-
+            MBSGameManagerGuy.SoundJetonBubble();
             vOscilTimer = vOscilTimerMax;
-
+            FnDamage();
 
         }
 
@@ -107,7 +117,7 @@ public class GuyBubble : MonoBehaviour
     void FnBrownian()
     {
        
-float vBrownianTimer = Mathf.Max(Mathf.Sin(vOscilTimer*vResistInterval),0);
+
         // push positon orbits
 
         gResistance.position = transform.position + new Vector3(  Mathf.Sin(vOscilCycle * vResistPointMoveSpeed),Mathf.Cos(vOscilCycle * vResistPointMoveSpeed),0);
@@ -122,9 +132,25 @@ float vBrownianTimer = Mathf.Max(Mathf.Sin(vOscilTimer*vResistInterval),0);
         vResistOffset.z = 0;   
 
         rb.AddForce(-vResistOffset,ForceMode.Impulse);
+        rb.AddTorque(-vResistOffset, ForceMode.Impulse);
 
         
     }
+
+    void FnDamage()
+    {
+        float vDamageTmp = vBlowTmp.magnitude - vForceDamageThreshold;
+        if (vDamageTmp >0)
+        {
+            vDamageTmp *= vForceDamageInc *Time.deltaTime;
+
+            FnHealthChange(vDamageTmp);
+
+        }
+
+
+    }
+
 
     public void FnHealthChange(float vHitTmp)
         // routine reduces health and changes the colour of the bubble to red as healh reduces, nd makes it more translucent.
@@ -132,11 +158,46 @@ float vBrownianTimer = Mathf.Max(Mathf.Sin(vOscilTimer*vResistInterval),0);
         vBubbleHealth -= vHitTmp;
 
         cBubbleColour.a = vBubbleColorFractionMin + (1- vBubbleColorFractionMin) * (vBubbleHealth/vBubbleMaxHealth);
+        cBubbleColour.r = 1;
         cBubbleColour.b = vBubbleHealth / vBubbleMaxHealth;
         cBubbleColour.g = vBubbleHealth / vBubbleMaxHealth;
-        GetComponent<Material>().color = cBubbleColour;
+        GetComponent<Renderer>().material.color = cBubbleColour;
+
+        MBSGameManagerGuy.SoundDamage();
+
+        if (vBubbleHealth <0)
+        {
+
+            FnBurst();
+        }
+
+    }
+
+    void FnBurst()
+    {
+
+        GetComponent<Renderer>().enabled = false;
+
+        MBSGameManagerGuy.SoundBurst();
+        MBSGameManagerGuy.FnGameOver();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.layer == 7)
+        {
+
+            FnBurst();
+
+
+
+
+        }
 
 
     }
+
 
 }
