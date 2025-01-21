@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,10 +41,16 @@ public class GameManager : MonoBehaviour
         //HUD.SetActive(false);
         gameOverScreen.SetActive(true);
 
-
-
     }
 
+    public void restartLevel()
+    {
+        //Load scene one main menu & gameover screen
+        SceneManager.LoadScene(0);
+    
+    }
+
+    
 
 
 
