@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456561687}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3053629, y: 0, z: 0, w: 0.95223606}
-  m_LocalPosition: {x: -1.28, y: 8.33, z: -2.15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.28, y: 4.96, z: -2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35.56, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &456561691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 1389700140}
   - component: {fileID: 1389700139}
   - component: {fileID: 1389700138}
+  - component: {fileID: 1389700141}
   m_Layer: 0
   m_Name: ResistanceOrigin
   m_TagString: Untagged
@@ -451,6 +452,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389700136}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1389700141
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389700136}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1492305658
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1492305659
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -576,7 +604,7 @@ GameObject:
   - component: {fileID: 1521084670}
   - component: {fileID: 1521084669}
   - component: {fileID: 1521084673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +620,7 @@ Transform:
   m_GameObject: {fileID: 1521084667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7679555, y: 0.8166984, z: 6.199798}
+  m_LocalPosition: {x: -1.7679555, y: 0.8166984, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -611,26 +639,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df85687aba28204dad296c93d14ca1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vOscillationSpeedBase: 1
-  vForceOscillation: 0.01
-  vForceOscillationTime: 500
+  vOscillationSpeedBase: 0.1
+  vForceOscillation: 10
+  vForceOscillationTime: 5
   vOscilAmount: 0.2
   vOscilTimer: 0
+  vOscilCycle: 0
+  vOscilTimerMax: 2
   vOsciAmtTmp: 0
   vWobbleX: 0
   vWobbleY: 0
   vWobbleZ: 0
+  vOscilLowerForceLimit: 0
   vBlowTmp: {x: 0, y: 0, z: 0}
+  vBlowTmpAtLastImpulse: {x: 0, y: 0, z: 0}
   gResistance: {fileID: 1389700137}
   vResistPointVector: {x: 0, y: 0, z: 0}
-  vResistPointMoveSpeed: 2
-  vResistance: 50
+  vResistPointMoveSpeed: 1
+  vResistance: 0.005
   vResistInterval: 0.1
   rb: {fileID: 0}
-  vBubbleHealth: 0
-  vBubbleMaxHealth: 0
-  vBubbleColorFractionMin: 0
+  vResistOffset: {x: 0, y: 0, z: 0}
+  vBubbleHealth: 100
+  vBubbleMaxHealth: 100
+  vBubbleColorFractionMin: 0.5
   cBubbleColour: {r: 0, g: 0, b: 0, a: 0}
+  MBSCone_tf: {fileID: 0}
 --- !u!135 &1521084670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -675,7 +709,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a7db154b788fc744198f3ab4707a5c59, type: 2}
+  - {fileID: 2100000, guid: 6a1189d58edd9d749a838506052416a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -714,7 +748,7 @@ Rigidbody:
   m_GameObject: {fileID: 1521084667}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.6
+  m_Drag: 0.8
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -727,10 +761,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!1 &1522411907
 GameObject:
@@ -915,11 +949,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4726550687614771986, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 4726550687614771986, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.32
+      value: 11.92
       objectReference: {fileID: 0}
     - target: {fileID: 4726550687614771986, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: m_LocalPosition.z
@@ -953,13 +987,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5311149104037668854, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
+      propertyPath: m_Constraints
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538610353865751436, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
+      propertyPath: m_Constraints
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7284536996919174160, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: m_Name
       value: BlowerParent (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7834926700895833812, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: force
-      value: 0.42
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8299457296025520308, guid: 0e0fa0e9bbdaca141a6ddf79f548c860, type: 3}
       propertyPath: cam
