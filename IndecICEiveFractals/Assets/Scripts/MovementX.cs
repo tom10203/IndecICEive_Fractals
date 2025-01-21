@@ -6,7 +6,7 @@ public class MovementX : MonoBehaviour
     public float forceAmount = 10f;
     public float speed = 5f;
     public float xRange = 10f;
-    public float zRange = 10f;    
+    public float zRange = 10f;
     public float yRange = -10f;
     public Vector3 velocity;
 
@@ -23,7 +23,7 @@ public class MovementX : MonoBehaviour
         velocity = rb.linearVelocity;
     }
     void ApplyForce()
-    {        
+    {
         rb.AddForce(new Vector3(xRange, yRange, 0) * forceAmount * speed);
     }
 
