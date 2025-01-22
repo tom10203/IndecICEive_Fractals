@@ -45,7 +45,7 @@ public class GuyBubble : MonoBehaviour
 
     //GameEnd
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
-
+    [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
 
     // Collection/resource variables
     public float vSize=1;
@@ -62,6 +62,8 @@ public class GuyBubble : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         MBSGameManagerGuy = FindFirstObjectByType<MBSGameManagerGuy>().GetComponent<MBSGameManagerGuy>();
+        MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
+
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
     }
 
@@ -181,38 +183,13 @@ public class GuyBubble : MonoBehaviour
         if (vBubbleHealth <0)
         {
 
-            FnBurst();
+           MBSBubbleEnemyInteraction.FnBurst();
         }
 
     }
 
-    public void FnBurst()
-    {
+  
 
-        GetComponent<Renderer>().enabled = false;
-
-        MBSGameManagerGuy.SoundBurst();
-        MBSGameManagerGuy.FnGameOver();
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // detect enemy
-
-
-        if (other.gameObject.layer == 7)
-        {
-
-            FnBurst();
-
-
-
-
-        }
-
-
-    }
 
 
 }
