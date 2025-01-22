@@ -9,6 +9,7 @@ TagManager:
   - WallRight
   - Ceiling
   - Base
+  - GameManager
   layers:
   - Default
   - TransparentFX

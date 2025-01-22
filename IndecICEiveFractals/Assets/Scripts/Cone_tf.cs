@@ -4,24 +4,15 @@ public class Cone_tf : MonoBehaviour
 {
     public float force;
     public Vector3 forceVector;
-    [SerializeField] GuyBubble GuyBubble;
-    bool printTriggerStatement = true;
-    private void Start()
-    {
-        GuyBubble = FindFirstObjectByType<GuyBubble>().GetComponent<GuyBubble>();
-    }
+    GuyBubble GuyBubble;
+
 
     private void OnTriggerStay(Collider other)
     {
         
         if (other.gameObject.layer == 6)
         {
-
-            if (printTriggerStatement)
-            {
-                printTriggerStatement = false;
-                print($"triggerEnter");
-            }
+            GuyBubble = other.transform.GetComponent<GuyBubble>();
 
             Vector3 toTarget = other.transform.position - transform.parent.position;
             float DistanceToTarget = toTarget.magnitude;   
@@ -50,12 +41,11 @@ public class Cone_tf : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        GuyBubble.vBlowTmp = Vector3.zero;
-
-        print($"Cone OnTriggerExit");
-        printTriggerStatement = true;
-
-
+        if (other.gameObject.layer == 6)
+        {
+            GuyBubble = other.transform.GetComponent<GuyBubble>();
+            GuyBubble.vBlowTmp = Vector3.zero;
+        }
     }
 
 }
