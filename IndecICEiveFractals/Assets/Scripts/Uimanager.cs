@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 
 
@@ -27,6 +28,8 @@ public class Uimanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //main menu volume slider and mute toggle
+
         GetComponent<AudioSource>().volume = _slider.value / 10;
         GetComponent<AudioSource>().enabled = _toggle.isOn;
 
@@ -37,7 +40,11 @@ public class Uimanager : MonoBehaviour
         Debug.Log(_inputField.text);
     }
 
+    //UI Maun menu hover over buton sound event trigger.
+   
+    //public void onMouse
 
+    //UI Main menu button click sound trigger
 
 
 }
