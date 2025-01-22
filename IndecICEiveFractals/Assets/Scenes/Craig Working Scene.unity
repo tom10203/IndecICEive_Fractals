@@ -628,25 +628,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1247728849256936638, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754248171914041444, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845387797347544937, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4750706621373832589, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Name
       value: Boundries (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424241935836776487, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9062007667892408693, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,67 +677,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
---- !u!1001 &876918781
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1214514835332979874, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_Name
-      value: Sea Urchin Spikey (small)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.313965
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.4459686
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476318359245531470, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
 --- !u!1001 &1142284485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,6 +815,70 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac031d59370d99147bacc7967f80ce35, type: 3}
+--- !u!1001 &1234825960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1214514835332979874, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_Name
+      value: Sea Urchin Spikey (small)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915861338714371823, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1214514835332979874, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1832060707}
+  m_SourcePrefab: {fileID: 100100000, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
 --- !u!1001 &1352265334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,79 +940,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80c75f20a76f7f44481b2ffe8ecd4ac2, type: 3}
---- !u!1001 &1623468481
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1214514835332979874, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_Name
-      value: Sea Urchin Spikey (small) (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.4459686
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922111009204628626, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
 --- !u!1001 &1639791248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1099,6 +1013,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80c75f20a76f7f44481b2ffe8ecd4ac2, type: 3}
+--- !u!1 &1832060706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1214514835332979874, guid: 50d93874f4b64ce4ab03aa7c4b542d49, type: 3}
+  m_PrefabInstance: {fileID: 1234825960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1832060707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832060706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c0104ed1558b246b1c9603ad3eafee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1001 &2031867791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1295,5 +1227,4 @@ SceneRoots:
   - {fileID: 114422228343053603}
   - {fileID: 5234772524541440297}
   - {fileID: 818615162}
-  - {fileID: 876918781}
-  - {fileID: 1623468481}
+  - {fileID: 1234825960}
