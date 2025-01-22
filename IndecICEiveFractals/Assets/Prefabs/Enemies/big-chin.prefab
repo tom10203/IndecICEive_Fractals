@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3946326882455355819}
   - component: {fileID: 4344231749981478680}
   - component: {fileID: 1195173007283756772}
+  - component: {fileID: 8052537316130051417}
   - component: {fileID: 7101443169683263974}
-  - component: {fileID: 3562948095561512222}
   m_Layer: 7
   m_Name: big-chin
   m_TagString: Untagged
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8074054452789719446}
-  m_Mesh: {fileID: -5844168724714976541, guid: 74a19552a41493f42baca6216cc81bcb, type: 3}
+  m_Mesh: {fileID: -5844168724714976541, guid: 3fe8a4d4495a3ee4ca30eafc2af585c3, type: 3}
 --- !u!23 &4344231749981478680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -110,6 +110,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.956302
   m_Center: {x: 0.00000023841858, y: 0.00000023841855, z: 0}
+--- !u!114 &8052537316130051417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074054452789719446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c0104ed1558b246b1c9603ad3eafee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  torque: 500
 --- !u!54 &7101443169683263974
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,26 +146,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3562948095561512222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8074054452789719446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a661c8c74ddb4964788103400efb549d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceAmount: 10
-  speed: 5
-  xRange: 10
-  zRange: 10
-  yRange: -10
-  velocity: {x: 0, y: 0, z: 0}
