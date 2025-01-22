@@ -6,6 +6,7 @@ public class BubblePop : MonoBehaviour
     public ParticleSystem popPS;
     MeshRenderer meshRenderer;
     SphereCollider sphereCollider;
+    GameManager gameManager;
 
     bool playPS = true;
 
@@ -13,13 +14,11 @@ public class BubblePop : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         sphereCollider = GetComponent<SphereCollider>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isPopped = true;
-        }
+  
         if (isPopped)
         {
             meshRenderer.enabled = false;
@@ -27,8 +26,10 @@ public class BubblePop : MonoBehaviour
 
             if (playPS)
             {
+                gameManager.updateUI(0, -1);
                 popPS.Play();
                 playPS = false;
+
             }
 
             Destroy(gameObject, 1);
@@ -38,6 +39,9 @@ public class BubblePop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.layer == 7)
+        {
+            isPopped = true;
+        }
     }
 }

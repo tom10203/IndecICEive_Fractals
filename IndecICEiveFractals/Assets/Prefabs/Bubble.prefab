@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popPS: {fileID: 3029858149211338949}
+  gameManagerGO: {fileID: 73810559253664307, guid: 73c780c7f0c4d4701ab9856216c39ef6, type: 3}
 --- !u!1001 &3272775256615528388
 PrefabInstance:
   m_ObjectHideFlags: 0

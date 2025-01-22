@@ -31,13 +31,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ceiling") || other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Ground, Ceiling trigger");
             float y = rb.linearVelocity.y;
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, -y, 0);
         }
         else if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallRight"))
         {
-            Debug.Log("Left, Right wall trigger");
             float x = rb.linearVelocity.x;
             rb.linearVelocity = new Vector3(-x, rb.linearVelocity.y, 0);
         }

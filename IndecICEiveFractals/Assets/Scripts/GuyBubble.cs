@@ -46,6 +46,7 @@ public class GuyBubble : MonoBehaviour
     //GameEnd
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
     [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
+    [SerializeField] GameManager GameManager;
 
     // Collection/resource variables
     public float vSize=1;
@@ -65,6 +66,8 @@ public class GuyBubble : MonoBehaviour
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
 
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
+
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -182,8 +185,8 @@ public class GuyBubble : MonoBehaviour
 
         if (vBubbleHealth <0)
         {
-
-           MBSBubbleEnemyInteraction.FnBurst();
+            
+            GameManager.updateUI(0, -1);
         }
 
     }
