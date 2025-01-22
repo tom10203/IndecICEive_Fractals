@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int score, lives;
+
 
     public bool isGameOver;
     public UnityEvent gameOver;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
             gameOverState();
         }
     }
+
 
     public void gameOverState()
     {
