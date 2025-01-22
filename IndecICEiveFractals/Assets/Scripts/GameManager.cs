@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
         scoreTextGameOver.text = "SCORE : " + score;
         highscoreText.text = "HIGHSCORE : " + PlayerPrefs.GetInt("Highscore");
         isGameOver = true;
-        //HUD.SetActive(false);
+        HUD.SetActive(false);
         gameOverScreen.SetActive(true);
 
     }
 
     public void restartLevel()
     {
-        //Load scene one main menu & gameover screen
+        //Load main menu & gameover screen
         SceneManager.LoadScene(0);
     
     }
