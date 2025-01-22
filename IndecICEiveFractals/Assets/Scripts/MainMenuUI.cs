@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 
@@ -40,6 +41,11 @@ public class Uimanager : MonoBehaviour
         Debug.Log(_inputField.text);
     }
 
-   
+    public void startLevel()
+    {
+        //Load game scene from main menu 
+        SceneManager.LoadScene(1);
+
+    }
 
 }
