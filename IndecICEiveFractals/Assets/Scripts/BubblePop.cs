@@ -6,7 +6,6 @@ public class BubblePop : MonoBehaviour
     public ParticleSystem popPS;
     MeshRenderer meshRenderer;
     SphereCollider sphereCollider;
-    public GameObject gameManagerGO;
     GameManager gameManager;
 
     bool playPS = true;
@@ -15,7 +14,7 @@ public class BubblePop : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         sphereCollider = GetComponent<SphereCollider>();
-        gameManager = gameManagerGO.GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
