@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class MBSResourceGuy : MonoBehaviour
 {
 
     [SerializeField] int vResouceNo;
-    [SerializeField] int vResourceScore;
+    public int vResourceScore;
     public bool isAttached = false;
     [SerializeField] Transform gBubble;
     [SerializeField] Vector3 vOffset;
@@ -33,6 +34,7 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] GameManager GameManager;
     public bool isInBase =false;
     [SerializeField] GameObject vSelf;
+    [SerializeField] float vDist;
 
     private void Start()
     {
@@ -46,6 +48,8 @@ public class MBSResourceGuy : MonoBehaviour
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
         GuyBubble.vResourcesCarried = 0;
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+
+        vSelf = gameObject;
 
         //Collider = GetComponent<SphereCollider>();    
     }
@@ -81,9 +85,13 @@ public class MBSResourceGuy : MonoBehaviour
 
         if (isInBase)
         {
+            
+            transform.parent = gBase;
+            vResourceScore = 0;
 
+          //  Debug.Log("Gets closer");
             vPosTmp = transform.localPosition;
-            float vDist = vPosTmp.magnitude;
+            vDist = vPosTmp.magnitude;
 
             if (vDist > vCentreLimit)
                 
@@ -91,16 +99,17 @@ public class MBSResourceGuy : MonoBehaviour
                 vPosTmp *= (1 - (vAttractionRate * Time.deltaTime));
 
                 transform.localPosition = vPosTmp;
+                transform.localScale = transform.localScale * (1- 0.05f * Time.deltaTime);
 
-                Debug.Log("Resource has to get closer");
+             //   Debug.Log("Resource has to get closer" + vPosTmp + "    World  "   + gBase.position);
+                
             }
 
             else
             {
-                Debug.Log("Resource Destroyed");
-                GameManager.updateUI(vResourceScore, 0);
-                Destroy(gameObject);
-
+                Debug.Log("Destroy");
+               gameObject.SetActive(false);
+              
 
             }
 
@@ -116,8 +125,56 @@ public class MBSResourceGuy : MonoBehaviour
     {
         vHitShow = other.transform;
         vHitLayer = other.gameObject.layer;
+
+        if (other.gameObject.layer == 8)
+
+        {
+
+            Debug.Log("Base Hit");
+
+            GetComponent<Collider>().enabled = false;
+            
+           
+            GuyBubble = gBubble.GetComponent<GuyBubble>();
+
+            isAttached = false;
+            isInBase = true;
+           
+            Debug.Log("Resource score is " + vResourceScore);
+            if (vResourceScore == 0)
+            { 
+                Debug.Log("Score Chnged");
+            }
+
+         
+
+            if (GuyBubble == null)
+            {
+                Debug.Log("No GuyBubble- why??");
+            }
+
+            else
+            {
+                Debug.Log ("Size" + GuyBubble.vSize);
+            }
+
+
+            GuyBubble.vSize = GuyBubble.vSize/(1+vSizeChange);
+            vBubbleNewSize = GuyBubble.vSize/(1+vSizeChange);
+
+            GuyBubble.vResourcesCarried = GuyBubble.vResourcesCarried - 1;
+
+            if (GuyBubble.vResourcesCarried < 0)
+            {
+                GuyBubble.vResourcesCarried = 0;
+            }
+            transform.parent = gBase;
+            GameManager.updateUI(vResourceScore, 0);
+
+        }
+        
         // if player touches the resource
-        if (other.gameObject.layer == 6)
+        else if (other.gameObject.layer == 6)
 
         {
             Debug.Log("Current Parent " + transform.parent);
@@ -169,6 +226,16 @@ public class MBSResourceGuy : MonoBehaviour
 
 
             }
+
+
+            
+
+               
+
+
+            
+
+
         }
     }
 

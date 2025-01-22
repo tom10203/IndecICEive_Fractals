@@ -1,11 +1,10 @@
 using UnityEngine;
 
-using System.Collections;
-using Unity.Mathematics;
+
 
 public class MBSBaseGuy : MonoBehaviour
 {
-    [SerializeField] GuyBubble GuyBubble;
+   /*  [SerializeField] GuyBubble GuyBubble;
     [SerializeField] Transform gBubble;
     [SerializeField] Transform vSlot1;
     [SerializeField] Transform vSlot2;
@@ -13,6 +12,7 @@ public class MBSBaseGuy : MonoBehaviour
     [SerializeField] Transform gBase;
     [SerializeField] Transform vContact;
     [SerializeField] MBSResourceGuy MBSResourceGuy;
+    [SerializeField] GameManager GameManager;
 
 
     private void Start()
@@ -35,6 +35,8 @@ public class MBSBaseGuy : MonoBehaviour
         Debug.Log("Bubble hits base");
         vContact = collision.GetComponent<Transform>();
         
+
+
         if (vContact == gBubble)
         {
 
@@ -72,15 +74,27 @@ public class MBSBaseGuy : MonoBehaviour
 
         if (vSlot1.GetChild(0) !=null)
         {
-            Debug.Log("Resouce in slot 1");
-            MBSResourceGuy = vSlot1.GetChild(0).GetComponent<MBSResourceGuy>();
-
-            vSlot1.GetChild(0).parent = gBase;
-
+           Transform vResourceTmp = vSlot1.GetChild(0).transform;
             
+            Debug.Log("Resouce in slot 1");
+            MBSResourceGuy = vResourceTmp.GetComponent<MBSResourceGuy>();
+            GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 
             MBSResourceGuy.isAttached = false;
             MBSResourceGuy.isInBase = true;
+            GameManager.updateUI(MBSResourceGuy.vResourceScore, 0);
+            MBSResourceGuy.vResourceScore = 0;
+
+
+
+            // move resource to BAse parent for movement and set delay destroy
+            vResourceTmp.parent = gBase;
+            vResourceTmp.GetComponent<Collider>().enabled = false;
+            Destroy(vResourceTmp.gameObject, 4);
+           
+            
+            
+            
             
         }
         else
@@ -112,8 +126,7 @@ public class MBSBaseGuy : MonoBehaviour
             Debug.Log("Notihing in slot 3");
 
         }
-        */
-
+       
         Debug.Log("Clear Bubble");
         GuyBubble.vSize = 1;
         GuyBubble.vResourcesCarried = 0;
@@ -121,6 +134,10 @@ public class MBSBaseGuy : MonoBehaviour
         GuyBubble.vCollect[1] = 0;
         GuyBubble.vCollect[2] = 0;
     }
-
+    void FnUpdateScore()
+    {
+     
+    }
+*/
 
 }
