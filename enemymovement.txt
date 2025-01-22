@@ -4,10 +4,11 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     public float torque;
+
     Rigidbody rb;
 
     void Start()
-    {        
+    {
         Movement();
         rb.AddTorque(transform.up * torque);
     }
