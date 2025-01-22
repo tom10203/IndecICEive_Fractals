@@ -1,0 +1,35 @@
+using UnityEngine;
+
+public class EnemyMovement : MonoBehaviour
+{
+    public float speed;
+    Rigidbody rb;
+
+    void Start()
+    {
+        Movement();
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void Movement()
+    {
+        rb = GetComponent<Rigidbody>();
+        float randomY = Random.Range(-1, 1);
+        float randomX = Random.Range(-1, 1);
+        Vector3 velocity = new Vector3(randomX, randomY, 0);
+        rb.linearVelocity = velocity * speed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ceiling"))
+        {
+
+        }
+
+    }
+}
