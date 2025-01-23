@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3100253991326535578}
   - component: {fileID: 8476318359245531470}
   - component: {fileID: 1915861338714371823}
-  - component: {fileID: -7132150462305799358}
+  - component: {fileID: -2828396912206686449}
   m_Layer: 7
   m_Name: Sea Urchin Spikey (small)
   m_TagString: Untagged
@@ -134,12 +134,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-7132150462305799358
+--- !u!114 &-2828396912206686449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
