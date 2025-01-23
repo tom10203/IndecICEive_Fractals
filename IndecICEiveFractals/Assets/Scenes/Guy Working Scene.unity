@@ -151,36 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77be191cdc46b65499ce6f29c905e2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vResouceNo: 0
-  vResourceScore: 0
-  isAttached: 0
-  gBubble: {fileID: 0}
-  vOffset: {x: 0, y: 0, z: 0}
-  rb: {fileID: 0}
-  vForce: 0.2
-  GuyBubble: {fileID: 0}
-  vIncrement: 0
-  vBubbleNewSize: 0
-  vCentreLimit: 0.1
-  vAttractionRate: 0.1
-  vPosTmp: {x: 0, y: 0, z: 0}
-  vSizeChange: 0.5
-  vSizeStart: {x: 0, y: 0, z: 0}
-  vSlot1: {fileID: 0}
-  vSlot2: {fileID: 0}
-  vSlot3: {fileID: 0}
-  gBase: {fileID: 0}
-  MBSBubbleEnemyInteraction: {fileID: 0}
-  Collider: {fileID: 0}
-  vHitShow: {fileID: 0}
-  vHitLayer: 0
-  vHitLayer2: 0
-  GameManager: {fileID: 0}
-  isInBase: 0
-  vSelf: {fileID: 0}
-  vDist: 0
-  gSprite: {fileID: 0}
-  gDissolve: {fileID: 0}
 --- !u!135 &52916413
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -447,7 +417,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -791,14 +761,7 @@ MonoBehaviour:
   MBSCone_tf: {fileID: 0}
   vForceDamageThreshold: 4
   vForceDamageInc: 5
-  vInitialTranspart: 0
   MBSGameManagerGuy: {fileID: 0}
-  MBSBubbleEnemyInteraction: {fileID: 0}
-  GameManager: {fileID: 0}
-  BubblePop: {fileID: 0}
-  vSize: 1
-  vCollect: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
-  vResourcesCarried: 0
 --- !u!135 &1521084670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1133,9 +1096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7becc9a13c40dd4689167a73e05c869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vRiseRate: 0.05
-  vUpperLimit: 9
-  GameManager: {fileID: 0}
 --- !u!135 &1741243009
 SphereCollider:
   m_ObjectHideFlags: 0

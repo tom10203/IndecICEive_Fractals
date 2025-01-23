@@ -958,8 +958,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
   m_sharedMaterial: {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
-  m_fontSharedMaterials:
-  - {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
+  m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1279,8 +1278,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
   m_sharedMaterial: {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
-  m_fontSharedMaterials:
-  - {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
+  m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3079,8 +3077,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
   m_sharedMaterial: {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
-  m_fontSharedMaterials:
-  - {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
+  m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3816,6 +3813,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gameOverScreen: {fileID: 1577382503}
+  pauseScreen: {fileID: 0}
   HUD: {fileID: 1721350817}
   newHighscoreText: {fileID: 0}
   scoreText: {fileID: 538978119}
@@ -4944,8 +4942,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
   m_sharedMaterial: {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
-  m_fontSharedMaterials:
-  - {fileID: 3118712749203222328, guid: 1e5fe7ede3916d5468a64bdddfca4019, type: 2}
+  m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -5696,6 +5693,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   gameOverScreen: {fileID: 1577382503}
+  pauseScreen: {fileID: 2019719232}
   HUD: {fileID: 1721350817}
   newHighscoreText: {fileID: 0}
   scoreText: {fileID: 111563305}
