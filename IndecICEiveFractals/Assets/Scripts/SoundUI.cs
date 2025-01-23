@@ -20,6 +20,7 @@ public class UISound : MonoBehaviour
         m_AudioSource.PlayOneShot(hoverSound);
     }
 
+    //Hoverover and click sound on TMP_Dropdown event trigger set on item
     public void playClickSound()
     {
         m_AudioSource.PlayOneShot(clickSound);

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("User Interface Elements")]
     public GameObject gameOverScreen;
+    public GameObject pauseScreen;
     public GameObject HUD, newHighscoreText;
     public TMP_Text scoreText, livesText, scoreTextGameOver, highscoreText;
 
