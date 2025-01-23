@@ -200,7 +200,13 @@ public class MBSResourceGuy : MonoBehaviour
 
             if (transform.parent.name == "ResourceParent")
             {
+
+                if (GuyBubble.vResourcesCarried == 0)
                 {
+                    GuyBubble.vResourcesCarried = 1;
+                    transform.parent = vSlot1;
+
+                    
                     // Collider.enabled = false;
                     isAttached = true;
                     vBubbleNewSize = GuyBubble.vSize + vSizeChange;
@@ -209,7 +215,7 @@ public class MBSResourceGuy : MonoBehaviour
 
                     Debug.Log("Checking for slots");
 
-                   if (GuyBubble.vResourcesCarried == 3)
+                  /* if (GuyBubble.vResourcesCarried == 3)
                     {
                         MBSBubbleEnemyInteraction.FnBurst();
 
@@ -221,17 +227,15 @@ public class MBSResourceGuy : MonoBehaviour
                         transform.parent = vSlot3;
 
                     }
-
+                  
                     if (GuyBubble.vResourcesCarried == 1)
                     {
                         GuyBubble.vResourcesCarried = 2;
                         transform.parent = vSlot2;
 
-                    }
-                    if (GuyBubble.vResourcesCarried == 0)
-                    {
-                        GuyBubble.vResourcesCarried = 1;
-                        transform.parent = vSlot1;
+                    }*/
+
+                    
 
                     }
                     
@@ -241,7 +245,7 @@ public class MBSResourceGuy : MonoBehaviour
 
 
 
-                }
+                
 
 
             }
