@@ -39,6 +39,5 @@ public class EnemyMovement : MonoBehaviour
             float x = rb.linearVelocity.x;
             rb.linearVelocity = new Vector3(-x, rb.linearVelocity.y, 0);
         }
-
     }
 }

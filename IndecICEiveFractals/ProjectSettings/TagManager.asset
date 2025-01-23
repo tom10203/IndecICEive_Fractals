@@ -10,6 +10,7 @@ TagManager:
   - Ceiling
   - Base
   - GameManager
+  - Capsule
   layers:
   - Default
   - TransparentFX
