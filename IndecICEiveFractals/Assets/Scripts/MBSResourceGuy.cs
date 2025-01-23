@@ -37,6 +37,9 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] GameObject gLight;
     [SerializeField] GameObject gDissolveEffect;
 
+    [SerializeField] GameObject gLight;
+    [SerializeField] GameObject gDissolveEffect;
+
     private void Start()
     {
         gBubble = FindFirstObjectByType<GuyBubble>().transform;
@@ -109,6 +112,9 @@ public class MBSResourceGuy : MonoBehaviour
                 Debug.Log("Destroy");
                gameObject.SetActive(false);
               gDissolveEffect.SetActive(true);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
             }

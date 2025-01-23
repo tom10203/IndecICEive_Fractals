@@ -73,6 +73,9 @@ public class GuyBubble : MonoBehaviour
         BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 
@@ -192,8 +195,13 @@ public class GuyBubble : MonoBehaviour
         if (vBubbleHealth <0)
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
            MBSBubbleEnemyInteraction.FnBurst();
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
 =======
            // BubblePop.isPopped = true;
            
