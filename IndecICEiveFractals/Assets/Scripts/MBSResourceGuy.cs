@@ -34,6 +34,9 @@ public class MBSResourceGuy : MonoBehaviour
     public bool isInBase =false;
     [SerializeField] GameObject vSelf;
 
+    [SerializeField] GameObject gLight;
+    [SerializeField] GameObject gDissolveEffect;
+
     private void Start()
     {
         gBubble = FindFirstObjectByType<GuyBubble>().transform;
@@ -97,10 +100,16 @@ public class MBSResourceGuy : MonoBehaviour
 
             else
             {
+<<<<<<< Updated upstream
                 Debug.Log("Resource Destroyed");
                 GameManager.updateUI(vResourceScore, 0);
                 Destroy(gameObject);
 
+=======
+                Debug.Log("Destroy");
+               gameObject.SetActive(false);
+              gDissolveEffect.SetActive(true);
+>>>>>>> Stashed changes
 
             }
 
@@ -126,6 +135,7 @@ public class MBSResourceGuy : MonoBehaviour
             {
                 {
                     // Collider.enabled = false;
+                    gLight.SetActive(false);
                     isAttached = true;
                     vBubbleNewSize = GuyBubble.vSize + vSizeChange;
                     GuyBubble.vBlowTmp = new Vector3(1, 0, 0);

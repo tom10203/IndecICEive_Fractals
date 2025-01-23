@@ -5,6 +5,7 @@ using Unity.Mathematics;
 
 public class MBSBaseGuy : MonoBehaviour
 {
+<<<<<<< Updated upstream
     [SerializeField] GuyBubble GuyBubble;
     [SerializeField] Transform gBubble;
     [SerializeField] Transform vSlot1;
@@ -13,20 +14,18 @@ public class MBSBaseGuy : MonoBehaviour
     [SerializeField] Transform gBase;
     [SerializeField] Transform vContact;
     [SerializeField] MBSResourceGuy MBSResourceGuy;
-
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
+    [SerializeField] GameManager GameManager;
+>>>>>>> Stashed changes
 
     private void Start()
     {
-        gBubble = FindFirstObjectByType<GuyBubble>().transform;
-        
-        GuyBubble = gBubble.GetComponent<GuyBubble>();
-        vSlot1 = gBubble.transform.Find("ResourceSlot1");
-        vSlot2 = gBubble.transform.Find("ResourceSlot2");
-        vSlot3 = gBubble.transform.Find("ResourceSlot3");
-      
-
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
     }
 
+<<<<<<< Updated upstream
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -61,11 +60,26 @@ public class MBSBaseGuy : MonoBehaviour
 
     void FnRecover()
 
+=======
+    private void Update()
+>>>>>>> Stashed changes
     {
+
+
+
+        transform.Translate(0, vRiseRate * Time.deltaTime, 0);
+        if (transform.position.y >vEnd)
+        {
+
+            GameManager.gameOverState();
+
+
+        }
 
 
     }
 
+<<<<<<< Updated upstream
     void FnTransferRes()
     {
         Debug.Log("TransferFn");
@@ -122,5 +136,8 @@ public class MBSBaseGuy : MonoBehaviour
         GuyBubble.vCollect[2] = 0;
     }
 
+=======
+>>>>>>> Stashed changes
 
 }
+

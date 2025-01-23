@@ -42,6 +42,7 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] float vForceDamageThreshold;
     [SerializeField] float vForceDamageInc;
     [SerializeField] float vInitialTranspart;
+    [SerializeField] BubblePop BubblePop;
 
     //GameEnd
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
@@ -65,6 +66,14 @@ public class GuyBubble : MonoBehaviour
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
 
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
+<<<<<<< Updated upstream
+=======
+
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();
+
+
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -182,8 +191,13 @@ public class GuyBubble : MonoBehaviour
 
         if (vBubbleHealth <0)
         {
+<<<<<<< Updated upstream
 
            MBSBubbleEnemyInteraction.FnBurst();
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
         }
 
     }
