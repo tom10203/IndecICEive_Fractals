@@ -10,12 +10,12 @@ using UnityEngine.SceneManagement;
 
 public class Uimanager : MonoBehaviour
 {
-    public Toggle _toggle;
-    public Slider _sliderMenu;
+   
+    public Slider _sliderVolume;
     public Slider _sliderSFX;
     public Button _play;
     public Button _pause;
-    public Button _resume;
+    public Button _continue;
     
     public TMP_Dropdown _difficulty;
    
@@ -32,9 +32,9 @@ public class Uimanager : MonoBehaviour
     {
         //main menu volume slider and mute toggle
 
-        GetComponent<AudioSource>().volume = _sliderMenu.value / 10;
+        GetComponent<AudioSource>().volume = _sliderVolume.value / 10;
         GetComponent<AudioSource>().volume = _sliderSFX.value / 10;
-        GetComponent<AudioSource>().enabled = _toggle.isOn;
+        
 
     }
 
@@ -46,5 +46,7 @@ public class Uimanager : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
+
+
 
 }
