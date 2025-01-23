@@ -8,6 +8,7 @@ public class MBSBaseGuy : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [SerializeField] GuyBubble GuyBubble;
     [SerializeField] Transform gBubble;
     [SerializeField] Transform vSlot1;
@@ -31,12 +32,18 @@ public class MBSBaseGuy : MonoBehaviour
     [SerializeField] float vEnd =9;
     [SerializeField] GameManager GameManager;
 >>>>>>> Stashed changes
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
+    [SerializeField] GameManager GameManager;
+>>>>>>> Stashed changes
 
     private void Start()
     {
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -83,6 +90,9 @@ public class MBSBaseGuy : MonoBehaviour
 =======
     private void Update()
 >>>>>>> Stashed changes
+=======
+    private void Update()
+>>>>>>> Stashed changes
     {
 
 
@@ -99,6 +109,7 @@ public class MBSBaseGuy : MonoBehaviour
 
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -158,6 +169,8 @@ public class MBSBaseGuy : MonoBehaviour
         GuyBubble.vCollect[2] = 0;
     }
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
