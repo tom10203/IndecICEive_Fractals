@@ -82,7 +82,7 @@ public class GuyBubble : MonoBehaviour
         {
             MBSGameManagerGuy.SoundJetonBubble();
             vOscilTimer = vOscilTimerMax;
-            FnDamage();
+            //FnDamage();
 
         }
 

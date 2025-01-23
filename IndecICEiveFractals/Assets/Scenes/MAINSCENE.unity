@@ -2928,7 +2928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lives: 0
+  lives: 3
   isGameOver: 0
   gameOver:
     m_PersistentCalls:
