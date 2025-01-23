@@ -35,18 +35,18 @@ public class GuyBubble : MonoBehaviour
 
     //Bubble Health
     public float vBubbleHealth;
-    public float vBubbleMaxHealth;
+    [SerializeField] float vBubbleMaxHealth;
     [SerializeField] float vBubbleColorFractionMin;
     [SerializeField] Color cBubbleColour;
     [SerializeField] Cone_tf MBSCone_tf;
     [SerializeField] float vForceDamageThreshold;
     [SerializeField] float vForceDamageInc;
     [SerializeField] float vInitialTranspart;
+    [SerializeField] BubblePop BubblePop;
 
     //GameEnd
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
     [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
-    [SerializeField] GameManager GameManager;
 
     // Collection/resource variables
     public float vSize=1;
@@ -66,8 +66,23 @@ public class GuyBubble : MonoBehaviour
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
 
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
+<<<<<<< Updated upstream
+=======
 
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();
+
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -185,8 +200,28 @@ public class GuyBubble : MonoBehaviour
 
         if (vBubbleHealth <0)
         {
-            
-            GameManager.updateUI(0, -1);
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+
+           MBSBubbleEnemyInteraction.FnBurst();
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
+=======
+           // BubblePop.isPopped = true;
+           
+>>>>>>> Stashed changes
         }
 
     }

@@ -1,10 +1,15 @@
 using UnityEngine;
 
-
+using System.Collections;
+using Unity.Mathematics;
 
 public class MBSBaseGuy : MonoBehaviour
 {
-   /*  [SerializeField] GuyBubble GuyBubble;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    [SerializeField] GuyBubble GuyBubble;
     [SerializeField] Transform gBubble;
     [SerializeField] Transform vSlot1;
     [SerializeField] Transform vSlot2;
@@ -12,21 +17,36 @@ public class MBSBaseGuy : MonoBehaviour
     [SerializeField] Transform gBase;
     [SerializeField] Transform vContact;
     [SerializeField] MBSResourceGuy MBSResourceGuy;
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
     [SerializeField] GameManager GameManager;
-
+>>>>>>> Stashed changes
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
+    [SerializeField] GameManager GameManager;
+>>>>>>> Stashed changes
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
+    [SerializeField] GameManager GameManager;
+>>>>>>> Stashed changes
+=======
+    [SerializeField] float vRiseRate;
+    [SerializeField] float vEnd =9;
+    [SerializeField] GameManager GameManager;
+>>>>>>> Stashed changes
 
     private void Start()
     {
-        gBubble = FindFirstObjectByType<GuyBubble>().transform;
-        
-        GuyBubble = gBubble.GetComponent<GuyBubble>();
-        vSlot1 = gBubble.transform.Find("ResourceSlot1");
-        vSlot2 = gBubble.transform.Find("ResourceSlot2");
-        vSlot3 = gBubble.transform.Find("ResourceSlot3");
-      
-
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
     }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -35,8 +55,6 @@ public class MBSBaseGuy : MonoBehaviour
         Debug.Log("Bubble hits base");
         vContact = collision.GetComponent<Transform>();
         
-
-
         if (vContact == gBubble)
         {
 
@@ -63,38 +81,53 @@ public class MBSBaseGuy : MonoBehaviour
 
     void FnRecover()
 
+=======
+    private void Update()
+>>>>>>> Stashed changes
+=======
+    private void Update()
+>>>>>>> Stashed changes
+=======
+    private void Update()
+>>>>>>> Stashed changes
+=======
+    private void Update()
+>>>>>>> Stashed changes
     {
+
+
+
+        transform.Translate(0, vRiseRate * Time.deltaTime, 0);
+        if (transform.position.y >vEnd)
+        {
+
+            GameManager.gameOverState();
+
+
+        }
 
 
     }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     void FnTransferRes()
     {
         Debug.Log("TransferFn");
 
         if (vSlot1.GetChild(0) !=null)
         {
-           Transform vResourceTmp = vSlot1.GetChild(0).transform;
-            
             Debug.Log("Resouce in slot 1");
-            MBSResourceGuy = vResourceTmp.GetComponent<MBSResourceGuy>();
-            GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+            MBSResourceGuy = vSlot1.GetChild(0).GetComponent<MBSResourceGuy>();
+
+            vSlot1.GetChild(0).parent = gBase;
+
+            
 
             MBSResourceGuy.isAttached = false;
             MBSResourceGuy.isInBase = true;
-            GameManager.updateUI(MBSResourceGuy.vResourceScore, 0);
-            MBSResourceGuy.vResourceScore = 0;
-
-
-
-            // move resource to BAse parent for movement and set delay destroy
-            vResourceTmp.parent = gBase;
-            vResourceTmp.GetComponent<Collider>().enabled = false;
-            Destroy(vResourceTmp.gameObject, 4);
-           
-            
-            
-            
             
         }
         else
@@ -126,7 +159,8 @@ public class MBSBaseGuy : MonoBehaviour
             Debug.Log("Notihing in slot 3");
 
         }
-       
+        */
+
         Debug.Log("Clear Bubble");
         GuyBubble.vSize = 1;
         GuyBubble.vResourcesCarried = 0;
@@ -134,10 +168,15 @@ public class MBSBaseGuy : MonoBehaviour
         GuyBubble.vCollect[1] = 0;
         GuyBubble.vCollect[2] = 0;
     }
-    void FnUpdateScore()
-    {
-     
-    }
-*/
+
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 }
+
