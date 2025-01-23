@@ -3,10 +3,13 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int score, lives;
+
 
     public bool isGameOver;
     public UnityEvent gameOver;
@@ -31,19 +34,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void gameOverState()
     {
+        MBSBoundayLimits[] mbsbl = FindObjectsByType<MBSBoundayLimits>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < mbsbl.Length; i++)
+        {
+            mbsbl[i].isGameOver = true;
+        }
+
         gameOver.Invoke();
         scoreTextGameOver.text = "SCORE : " + score;
         highscoreText.text = "HIGHSCORE : " + PlayerPrefs.GetInt("Highscore");
         isGameOver = true;
-        //HUD.SetActive(false);
+        HUD.SetActive(false);
         gameOverScreen.SetActive(true);
 
-
+        //Time.timeScale = 0;
 
     }
 
+    public void restartLevel()
+    {
+        //Load main menu & gameover screen
+        Debug.Log("Restart Button Clicked");
+        SceneManager.LoadScene(0);
+    
+    }
+
+    
 
 
 

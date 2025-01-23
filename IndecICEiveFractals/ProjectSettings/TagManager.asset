@@ -9,6 +9,7 @@ TagManager:
   - WallRight
   - Ceiling
   - Base
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Bubble
   - Enemy
-  - 
-  - 
+  - Base
+  - Boundary
   - 
   - 
   - 

@@ -9,7 +9,7 @@ public class MBSGameManagerGuy : MonoBehaviour
     public void FnGameOver()
 
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
 
 
 
