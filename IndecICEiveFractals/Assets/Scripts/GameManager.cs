@@ -9,8 +9,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public int score, lives;
-
-
     public bool isGameOver;
     public UnityEvent gameOver;
 
@@ -19,7 +17,12 @@ public class GameManager : MonoBehaviour
     public GameObject HUD, newHighscoreText;
     public TMP_Text scoreText, livesText, scoreTextGameOver, highscoreText;
 
+    private int highscore;
 
+    private void Start()
+    {
+        highscore = PlayerPrefs.GetInt("Highscore", 0); 
+    }
 
     public void updateUI(int scoreChange, int livesChanged)
     {
@@ -34,9 +37,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void gameOverState()
     {
+        if (score > highscore)
+        {
+            highscore = score; 
+            PlayerPrefs.SetInt("Highscore", highscore);
+            PlayerPrefs.Save(); 
+        }
+   
+
         MBSBoundayLimits[] mbsbl = FindObjectsByType<MBSBoundayLimits>(FindObjectsSortMode.None);
 
         for (int i = 0; i < mbsbl.Length; i++)
@@ -46,28 +56,18 @@ public class GameManager : MonoBehaviour
 
         gameOver.Invoke();
         scoreTextGameOver.text = "SCORE : " + score;
-        highscoreText.text = "HIGHSCORE : " + PlayerPrefs.GetInt("Highscore");
+        highscoreText.text = "HIGHSCORE : " + highscore; 
+
         isGameOver = true;
         HUD.SetActive(false);
         gameOverScreen.SetActive(true);
 
-        //Time.timeScale = 0;
-
+        Time.timeScale = 0;
     }
 
     public void restartLevel()
     {
-        //Load main menu & gameover screen
-        Debug.Log("Restart Button Clicked");
+        
         SceneManager.LoadScene(0);
-    
     }
-
-    
-
-
-
-
-
-
 }

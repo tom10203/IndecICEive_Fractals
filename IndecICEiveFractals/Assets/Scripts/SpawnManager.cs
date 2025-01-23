@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public float offset = 2;
     GameObject bubble;
 
-    void Start()
+    void Awake()
     {
         bubble = InstantiateBubble();
     }
