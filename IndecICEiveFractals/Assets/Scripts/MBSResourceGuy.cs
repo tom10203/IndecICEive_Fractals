@@ -40,6 +40,8 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] GameObject gDissolve;
 
 
+    [SerializeField] SFX SFX;
+
     private void Start()
     {
         
@@ -145,6 +147,14 @@ public class MBSResourceGuy : MonoBehaviour
         vHitShow = other.transform;
         vHitLayer = other.gameObject.layer;
 
+        gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
+        MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
+
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        GuyBubble = FindFirstObjectByType<GuyBubble>().GetComponent<GuyBubble>();
+
+        SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
+
         if (other.gameObject.layer == 8)
 
         {
@@ -189,6 +199,7 @@ public class MBSResourceGuy : MonoBehaviour
             }
             transform.parent = gBase;
             GameManager.updateUI(vResourceScore, 0);
+            SFX.SoundDrop();
 
         }
         
@@ -200,6 +211,8 @@ public class MBSResourceGuy : MonoBehaviour
 
             if (transform.parent.name == "ResourceParent")
             {
+                SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
+
 
                 if (GuyBubble.vResourcesCarried == 0)
                 {
@@ -212,6 +225,7 @@ public class MBSResourceGuy : MonoBehaviour
                     vBubbleNewSize = GuyBubble.vSize + vSizeChange;
                     GuyBubble.vBlowTmp = new Vector3(1, 0, 0);
                     GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
+                    SFX.SoundGrab();
 
                     Debug.Log("Checking for slots");
 
