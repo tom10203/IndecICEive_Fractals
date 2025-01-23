@@ -35,7 +35,7 @@ public class GuyBubble : MonoBehaviour
 
     //Bubble Health
     public float vBubbleHealth;
-    [SerializeField] float vBubbleMaxHealth;
+    public float vBubbleMaxHealth;
     [SerializeField] float vBubbleColorFractionMin;
     [SerializeField] Color cBubbleColour;
     [SerializeField] Cone_tf MBSCone_tf;
