@@ -47,6 +47,7 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
     [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
     [SerializeField] GameManager GameManager;
+    [SerializeField] BubblePop BubblePop;
 
     // Collection/resource variables
     public float vSize=1;
@@ -68,6 +69,7 @@ public class GuyBubble : MonoBehaviour
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
 
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();   
     }
 
     // Update is called once per frame
@@ -186,7 +188,8 @@ public class GuyBubble : MonoBehaviour
         if (vBubbleHealth <0)
         {
             
-            GameManager.updateUI(0, -1);
+            BubblePop.isPopped = true;
+
         }
 
     }
