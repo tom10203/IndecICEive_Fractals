@@ -8,13 +8,15 @@ public class BubblePop : MonoBehaviour
     SphereCollider sphereCollider;
     GameManager gameManager;
 
-    bool playPS = true;
+    [SerializeField] bool playPS = true;
+    [SerializeField] SFX SFX;
 
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         sphereCollider = GetComponent<SphereCollider>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
     }
     void Update()
     {
@@ -29,9 +31,11 @@ public class BubblePop : MonoBehaviour
                 gameManager.updateUI(0, -1);
                 popPS.Play();
                 playPS = false;
-
+                SFX.SoundPop();
             }
 
+           
+            
             Destroy(gameObject, 1);
                        
         }

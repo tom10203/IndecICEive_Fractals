@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2561793192243438847
 Transform:
   m_ObjectHideFlags: 0
@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36923951840687776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -483,6 +483,8 @@ MonoBehaviour:
   vInitialTranspart: 0
   MBSGameManagerGuy: {fileID: 0}
   MBSBubbleEnemyInteraction: {fileID: 0}
+  GameManager: {fileID: 0}
+  BubblePop: {fileID: 0}
   vSize: 1
   vCollect: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   vResourcesCarried: 0
@@ -540,8 +542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5216967e88c3b494c95b9541d286f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopped: 0
   popPS: {fileID: 3029858149211338949}
-  gameManagerGO: {fileID: 73810559253664307, guid: 73c780c7f0c4d4701ab9856216c39ef6, type: 3}
+  playPS: 1
 --- !u!1001 &3272775256615528388
 PrefabInstance:
   m_ObjectHideFlags: 0
