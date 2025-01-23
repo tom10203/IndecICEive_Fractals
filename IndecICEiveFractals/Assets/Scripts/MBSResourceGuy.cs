@@ -36,27 +36,43 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] GameObject vSelf;
     [SerializeField] float vDist;
 
+    [SerializeField] GameObject gSprite;
+    [SerializeField] GameObject gDissolve;
+
+
     private void Start()
     {
-        gBubble = FindFirstObjectByType<GuyBubble>().transform;
+        
         vSizeStart = transform.localScale;
-        GuyBubble = gBubble.GetComponent<GuyBubble>();
-        vSlot1 = gBubble.transform.Find("ResourceSlot1");
-        vSlot2 = gBubble.transform.Find("ResourceSlot2");
-        vSlot3 = gBubble.transform.Find("ResourceSlot3");
+       
         gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
-        GuyBubble.vResourcesCarried = 0;
+        
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 
-        vSelf = gameObject;
+       // vSelf = gameObject;
 
         //Collider = GetComponent<SphereCollider>();    
+    }
+
+    public void FnFindBubble()
+    {
+        gBubble = FindFirstObjectByType<GuyBubble>().transform;
+        if (gBubble != null)
+        {
+
+            GuyBubble = gBubble.GetComponent<GuyBubble>();
+            vSlot1 = gBubble.transform.Find("ResourceSlot1");
+            vSlot2 = gBubble.transform.Find("ResourceSlot2");
+            vSlot3 = gBubble.transform.Find("ResourceSlot3");
+            GuyBubble.vResourcesCarried = 0;
+        }
     }
 
 
     void Update()
     {
+        FnFindBubble();
 
         if (isAttached)
         {
@@ -108,7 +124,10 @@ public class MBSResourceGuy : MonoBehaviour
             else
             {
                 Debug.Log("Destroy");
-               gameObject.SetActive(false);
+               gSprite.SetActive(false);
+                gDissolve.SetActive(true);
+                Destroy(gameObject,5);
+                isInBase = false;
               
 
             }

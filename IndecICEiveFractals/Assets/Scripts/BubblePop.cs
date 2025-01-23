@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BubblePop : MonoBehaviour
 {
-    bool isPopped = false;
+    public bool isPopped = false;
     public ParticleSystem popPS;
     MeshRenderer meshRenderer;
     SphereCollider sphereCollider;
