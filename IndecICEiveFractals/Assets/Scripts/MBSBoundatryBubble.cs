@@ -50,7 +50,7 @@ public class MBSBoundatryBubble : MonoBehaviour
 
             //Damage
 
-            GuyBubble.FnHealthChange(vDamageonWall);
+           // GuyBubble.FnHealthChange(vDamageonWall);
 
 
 
