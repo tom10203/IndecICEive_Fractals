@@ -6558,8 +6558,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9e3bd5f6392feaf41b5ad76319199ee1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9e3bd5f6392feaf41b5ad76319199ee1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6657,13 +6657,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ccf1204121a284f9e0d8883712b966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toggle: {fileID: 0}
-  _sliderMenu: {fileID: 0}
-  _sliderSFX: {fileID: 0}
-  _play: {fileID: 0}
-  _pause: {fileID: 0}
-  _resume: {fileID: 0}
-  _difficulty: {fileID: 0}
+  _toggle: {fileID: 1731911183}
+  _sliderMenu: {fileID: 1504613244}
+  _sliderSFX: {fileID: 1911522701}
+  _play: {fileID: 933572645}
+  _pause: {fileID: 273699120}
+  _resume: {fileID: 315567230}
+  _difficulty: {fileID: 1875032953}
 --- !u!4 &1552447067
 Transform:
   m_ObjectHideFlags: 0
