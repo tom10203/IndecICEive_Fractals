@@ -12,6 +12,7 @@ public class UISound : MonoBehaviour
     private void Start()
     {
         m_AudioSource = GetComponent<AudioSource>();
+        m_AudioSource.ignoreListenerPause = true;
     }
 
 

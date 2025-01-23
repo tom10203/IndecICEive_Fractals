@@ -15,6 +15,7 @@ public class Uimanager : MonoBehaviour
     public Slider _sliderSFX;
     public Button _play;
     public Button _pause;
+    public Button _resume;
     
     public TMP_Dropdown _difficulty;
    
