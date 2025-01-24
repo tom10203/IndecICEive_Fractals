@@ -7635,6 +7635,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2326085034241049839, guid: ba3b0c52448b7b041a3702ec410f357c, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326085034241049839, guid: ba3b0c52448b7b041a3702ec410f357c, type: 3}
       propertyPath: field of view
       value: 58.6
       objectReference: {fileID: 0}
