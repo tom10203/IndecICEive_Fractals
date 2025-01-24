@@ -1281,7 +1281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -4652,7 +4651,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -4676,7 +4674,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: -1.5
   vReflectVertical: 0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -6519,7 +6516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -7404,7 +7400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: -1.5
   vReflectVertical: 0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -7433,7 +7428,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -9117,7 +9111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.8
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -9581,7 +9574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -9616,7 +9608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380713544389418204, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4380713544389418204, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -9632,7 +9624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5424257360345939853, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5424257360345939853, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -9640,7 +9632,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 65abf437d6c2be04cb02a8183e988a77, type: 2}
     - target: {fileID: 5517195211830541212, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816266237422291917, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Layer
@@ -9648,7 +9640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7196149154139570563, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7196149154139570563, guid: 60cc8e8bc459c6c4b8fcc55a2239d867, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -9974,7 +9966,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -10242,7 +10233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -10266,7 +10256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.8
   vReflectVertical: -1.5
   vVectorLinearVel: {x: 0, y: 0, z: 0}
@@ -11008,7 +10997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
   GuyBubble: {fileID: 0}
-  vDamageonWall: 10
   vReflectHorizontal: 0.6
   vReflectVertical: -0.8
   vVectorLinearVel: {x: 0, y: 0, z: 0}
