@@ -397,9 +397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gBubble: {fileID: 0}
-  xUpperLimit: 8
+  xUpperLimit: 7.5
   yUpperLimit: 9.4
-  xLowerLimit: -20
+  xLowerLimit: -18
   yLowerLimit: -7
   tmpPos: {x: 0, y: 0, z: 0}
   isGameOver: 0
