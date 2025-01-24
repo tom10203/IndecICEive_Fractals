@@ -11,6 +11,7 @@ TagManager:
   - Base
   - GameManager
   - Capsule
+  - RParent
   layers:
   - Default
   - TransparentFX
