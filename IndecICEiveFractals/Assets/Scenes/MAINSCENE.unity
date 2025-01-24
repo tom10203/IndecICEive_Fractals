@@ -1510,6 +1510,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourceParent
       objectReference: {fileID: 0}
+    - target: {fileID: 5902884183708434948, guid: d764743397559fb44b8b03e0cdc4b344, type: 3}
+      propertyPath: m_TagString
+      value: RParent
+      objectReference: {fileID: 0}
     - target: {fileID: 6791908468982949458, guid: d764743397559fb44b8b03e0cdc4b344, type: 3}
       propertyPath: m_Radius
       value: 0.8
