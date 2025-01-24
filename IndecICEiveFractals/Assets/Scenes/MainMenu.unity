@@ -824,7 +824,10 @@ MonoBehaviour:
   _play: {fileID: 540892655}
   _pause: {fileID: 109471526}
   _resume: {fileID: 0}
+  MusicVol: 0
+  SFXVol: 0
   _difficulty: {fileID: 1448980820}
+  _difficultySlider: {fileID: 0}
 --- !u!82 &141438916
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3281,7 +3284,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5594,7 +5597,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6460,7 +6463,10 @@ MonoBehaviour:
   _play: {fileID: 540892655}
   _pause: {fileID: 0}
   _resume: {fileID: 0}
+  MusicVol: 0
+  SFXVol: 0
   _difficulty: {fileID: 0}
+  _difficultySlider: {fileID: 0}
 --- !u!1 &1743446847
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,6 +6883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0
   dropdown: {fileID: 1448980820}
+  audioVolumeBackground: 0
+  audioVolumeSFX: 0
+  Uimanager: {fileID: 0}
+  isMenuScene: 1
 --- !u!1 &1868986184
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,7 +7477,7 @@ MonoBehaviour:
   m_text: "Hello an welcome to Blowing Bubbles.\r\nCreated by the IndecICEives Team
     during Global Game Jam 2025.\r\nWe welcome you to try our game and have some
     fun with that we have created.\r\n\r\nControls.\r\nUse the mouse to move the
-    propeller. The mouse button freezes the propeller angle while held down.\r\n\r\nAim
+    propeller. Press Spacebar to freeze the propeller angle while held down.\r\n\r\nAim
     of the Game\r\nGather resources from the sea bottom. \r\nBlow the bubble around
     with the jet of water. Collect resources by moving the bubble over them, bring
     them to the green bubble base.\r\nYou have until the green bubble reaches the

@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     public void restartLevel()
     {
         Time.timeScale = 1;
+        Destroy(DifficultySlider.instance.gameObject);
         SceneManager.LoadScene(0);
     }
 }

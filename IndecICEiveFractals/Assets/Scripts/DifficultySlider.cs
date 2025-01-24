@@ -31,10 +31,10 @@ public class DifficultySlider : MonoBehaviour
     {
         difficulty = dropdown.value;
       
-        Uimanager = FindFirstObjectByType<Uimanager>();
+        //Uimanager = FindFirstObjectByType<Uimanager>();
 
-        audioVolumeBackground = Uimanager.MusicVol;
-        audioVolumeSFX = Uimanager.SFXVol;
+        //audioVolumeBackground = Uimanager.MusicVol;
+        //audioVolumeSFX = Uimanager.SFXVol;
 
       
     }
