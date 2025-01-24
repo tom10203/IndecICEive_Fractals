@@ -39,14 +39,16 @@ public class MBSBoundatryBubble : MonoBehaviour
         if (other.gameObject.layer ==6)
 
         {
-           //Bounce
-            
-            vVectorLinearVel = rb.linearVelocity;
+            //Bounce
+            if (rb != null)
+            {
+                vVectorLinearVel = rb.linearVelocity;
 
-            vVectorLinearVel.x = vVectorLinearVel.x * vReflectHorizontal;
-            vVectorLinearVel.y = vVectorLinearVel.y * vReflectVertical;
+                vVectorLinearVel.x = vVectorLinearVel.x * vReflectHorizontal;
+                vVectorLinearVel.y = vVectorLinearVel.y * vReflectVertical;
 
-            rb.linearVelocity = vVectorLinearVel;
+                rb.linearVelocity = vVectorLinearVel;
+            }
 
             //Damage
 

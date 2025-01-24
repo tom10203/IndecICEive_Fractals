@@ -59,11 +59,10 @@ public class MBSResourceGuy : MonoBehaviour
 
     public void FnFindBubble()
     {
-        gBubble = FindFirstObjectByType<GuyBubble>().transform;
-        if (gBubble != null)
+        GuyBubble = FindFirstObjectByType<GuyBubble>();
+        if (GuyBubble != null)
         {
-
-            GuyBubble = gBubble.GetComponent<GuyBubble>();
+            gBubble = GuyBubble.transform;
             vSlot1 = gBubble.transform.Find("ResourceSlot1");
             vSlot2 = gBubble.transform.Find("ResourceSlot2");
             vSlot3 = gBubble.transform.Find("ResourceSlot3");
