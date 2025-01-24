@@ -19,7 +19,7 @@ public class DifficultySlider : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void SelectDifficulty()
+    public void SelectDifficultyNew()
     {
         difficulty = dropdown.value;
     }

@@ -7,11 +7,27 @@ public class SpawnManager : MonoBehaviour
     public float offset = 2;
     GameObject bubble;
 
+    public GameObject[] enemies;
+
     void Awake()
     {
         bubble = InstantiateBubble();
     }
 
+    private void Start()
+    {
+        DifficultySlider difficultySlider = FindFirstObjectByType<DifficultySlider>();
+        if (difficultySlider != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (i <= difficultySlider.difficulty)
+                {
+                    enemies[i].SetActive(true);
+                }
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
