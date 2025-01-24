@@ -7464,29 +7464,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello and welcome to Blowing Bubbles.
-
-    Created by the IndecICEives
-    Team during Global Game Jam 2025.
-
-    We welcome you to try our game and have
-    some fun with that we have created.
-
-
-
-    Controls.
-
-    Mouse direction to
-    control the blower and left mouse click to hold position.
-
-    [place-holder-txt]
-
-
-
-    Aim
-    of the Game.
-
-    Blow the bubble to collect resources and [place-holder-txt]'
+  m_text: "Hello an welcome to Blowing Bubbles.\r\nCreated by the IndecICEives Team
+    during Global Game Jam 2025.\r\nWe welcome you to try our game and have some
+    fun with that we have created.\r\n\r\nControls.\r\nUse the mouse to move the
+    propeller. The mouse button freezes the propeller angle while held down.\r\n\r\nAim
+    of the Game\r\nGather resources from the sea bottom. \r\nBlow the bubble around
+    with the jet of water. Collect resources by moving the bubble over them, bring
+    them to the green bubble base.\r\nYou have until the green bubble reaches the
+    top of the screen.\r\nAvoid the sea \"anememies\" - they will butst your bubble."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}
   m_sharedMaterial: {fileID: 7653481148483898871, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}
@@ -7513,7 +7498,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.2
+  m_fontSize: 25.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
