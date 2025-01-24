@@ -32,10 +32,12 @@ public class Uimanager : MonoBehaviour
     {
         //main menu volume slider and mute toggle
 
+        //Commented out to avoid errors on compile - Guy - reinstate when finished. SFX are now in the audio script SFX attached to the InGameManager to avoid conflicts
+/*
         GetComponent<AudioSource>().volume = _sliderMenu.value / 10;
         GetComponent<AudioSource>().volume = _sliderSFX.value / 10;
         GetComponent<AudioSource>().enabled = _toggle.isOn;
-
+*/
     }
 
    

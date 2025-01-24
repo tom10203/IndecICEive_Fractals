@@ -11,7 +11,7 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] Transform gBubble;
     [SerializeField] Vector3 vOffset;
     [SerializeField] Rigidbody rb;
-    [SerializeField] float vForce =0.2f;
+    //[SerializeField] float vForce =0.2f;
     [SerializeField] GuyBubble GuyBubble;
     [SerializeField] float vIncrement;
     [SerializeField] float vBubbleNewSize;
