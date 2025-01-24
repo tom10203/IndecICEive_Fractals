@@ -1935,7 +1935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &273699118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3839,6 +3839,7 @@ MonoBehaviour:
   clipPop: {fileID: 8300000, guid: 3900e24331d4746d9b944abe68de8a72, type: 3}
   clipGrab: {fileID: 8300000, guid: d78f4dbcb907f4a3380d2b8806852e36, type: 3}
   clipDrop: {fileID: 8300000, guid: b144ffe1120d54b77af1e9d12783f8ac, type: 3}
+  difficultySlider: {fileID: 0}
 --- !u!1 &449379857
 GameObject:
   m_ObjectHideFlags: 0
@@ -8825,7 +8826,10 @@ MonoBehaviour:
   _play: {fileID: 933572645}
   _pause: {fileID: 0}
   _resume: {fileID: 0}
+  MusicVol: 0
+  SFXVol: 0
   _difficulty: {fileID: 0}
+  _difficultySlider: {fileID: 0}
 --- !u!224 &1495813740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9608,7 +9612,10 @@ MonoBehaviour:
   _play: {fileID: 933572645}
   _pause: {fileID: 273699120}
   _resume: {fileID: 315567230}
+  MusicVol: 0
+  SFXVol: 0
   _difficulty: {fileID: 1875032953}
+  _difficultySlider: {fileID: 0}
 --- !u!4 &1552447067
 Transform:
   m_ObjectHideFlags: 0

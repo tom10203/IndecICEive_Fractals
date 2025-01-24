@@ -7,11 +7,15 @@ public class SFX : MonoBehaviour
     [SerializeField] AudioClip clipPop;
     [SerializeField] AudioClip clipGrab;
     [SerializeField] AudioClip clipDrop;
+    [SerializeField] DifficultySlider difficultySlider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       difficultySlider = FindFirstObjectByType<DifficultySlider>();
+        
         audioSource= GetComponent<AudioSource>();
+        audioSource.volume = difficultySlider.audioVolumeSFX/10;
     }
 
     // Update is called once per frame
