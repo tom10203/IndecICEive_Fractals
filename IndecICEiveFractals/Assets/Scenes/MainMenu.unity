@@ -7386,8 +7386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69, y: -593}
-  m_SizeDelta: {x: 728.7075, y: 383.8314}
+  m_AnchoredPosition: {x: 65.36269, y: -654}
+  m_SizeDelta: {x: 1114.2639, y: 477.1024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016966339
 MonoBehaviour:
@@ -7409,29 +7409,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello and welcome to Blowing Bubbles.
-
-    Created by the IndecICEives
-    Team during Global Game Jam 2025.
-
-    We welcome you to try our game and have
-    some fun with that we have created.
-
-    
-
-    Controls.
-
-    Mouse direction
-    to control the blower and left mouse click to hold position.
-
-    [place-holder-txt]
-
-    
-
-    Aim
-    of the Game.
-
-    Blow the bubble to collect resources and [place-holder-txt]'
+  m_text: "Hello an welcome to Blowing Bubbles.\nCreated by the IndecICEives Team
+    during Global Game Jam 2025.\nWe welcome you to try our game and have some fun
+    with that we have created.\n\nControls.\nUse the mouse to move the propeller.
+    The mouse button freezes the propeller angle while held down.\n\nAim of the Game\r\nGather
+    resources from the sea bottom. \r\nBlow the bubble around with the jet of water.
+    Collect resources by moving the bubble over them, bring them to the green bubble
+    base.\r\nYou have until the green bubble reaches the top of the screen.\r\nAvoid
+    the sea \"anememies\" - they will butst your bubble.\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}
   m_sharedMaterial: {fileID: 7653481148483898871, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}
@@ -7458,7 +7443,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.2
+  m_fontSize: 33.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
