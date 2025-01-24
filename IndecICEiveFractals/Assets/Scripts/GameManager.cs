@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
         if (lives <= 0)
         {
+
             gameOverState();
         }
     }
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(true);
 
         Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
     public void restartLevel()

@@ -7477,11 +7477,12 @@ MonoBehaviour:
   m_text: "Hello an welcome to Blowing Bubbles.\r\nCreated by the IndecICEives Team
     during Global Game Jam 2025.\r\nWe welcome you to try our game and have some
     fun with that we have created.\r\n\r\nControls.\r\nUse the mouse to move the
-    propeller. Press Spacebar to freeze the propeller angle while held down.\r\n\r\nAim
-    of the Game\r\nGather resources from the sea bottom. \r\nBlow the bubble around
-    with the jet of water. Collect resources by moving the bubble over them, bring
-    them to the green bubble base.\r\nYou have until the green bubble reaches the
-    top of the screen.\r\nAvoid the sea \"anememies\" - they will butst your bubble."
+    propeller. Press Spacebar, or Left Click to freeze the propeller angle while
+    held down.\r\n\r\nAim of the Game\r\nGather resources from the sea bottom. \r\nBlow
+    the bubble around with the jet of water. Collect resources by moving the bubble
+    over them, bring them to the green bubble base.\r\nYou have until the green bubble
+    reaches the top of the screen.\r\nAvoid the sea \"anememies\" - they will butst
+    your bubble."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}
   m_sharedMaterial: {fileID: 7653481148483898871, guid: 2d3925598fd54e7488004b3f663317f1, type: 2}

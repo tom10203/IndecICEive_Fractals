@@ -29,7 +29,7 @@ public class Blower_tf : MonoBehaviour
 
         transform.position = new Vector3(v3.x, v3.y, 6f);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         { 
             stationary = true;
             blowerRb.isKinematic = true;
