@@ -15,10 +15,10 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] GuyBubble GuyBubble;
     [SerializeField] float vIncrement;
     [SerializeField] float vBubbleNewSize;
-    [SerializeField] float vCentreLimit =0.1f;
-    [SerializeField] float vAttractionRate =0.1f;
+    [SerializeField] float vCentreLimit = 0.1f;
+    [SerializeField] float vAttractionRate = 0.1f;
     [SerializeField] Vector3 vPosTmp;
-    [SerializeField] float vSizeChange =.5f;
+    [SerializeField] float vSizeChange = .5f;
     [SerializeField] Vector3 vSizeStart;
     [SerializeField] Transform vSlot1;
     [SerializeField] Transform vSlot2;
@@ -32,7 +32,7 @@ public class MBSResourceGuy : MonoBehaviour
     [SerializeField] int vHitLayer;
     [SerializeField] int vHitLayer2;
     [SerializeField] GameManager GameManager;
-    public bool isInBase =false;
+    public bool isInBase = false;
     [SerializeField] GameObject vSelf;
     [SerializeField] float vDist;
 
@@ -42,17 +42,29 @@ public class MBSResourceGuy : MonoBehaviour
 
     [SerializeField] SFX SFX;
 
+    [SerializeField] BubblePop BubblePop;
+    [SerializeField] Transform gResourceParent;
+    [SerializeField] Vector3 vStartPos;
+    [SerializeField] bool isReturning;
+    [SerializeField] float vReturnSpeed = .1f;
+    [SerializeField] Vector3 vStartSizeRes;
+
+
     private void Start()
     {
-        
+
         vSizeStart = transform.localScale;
-       
+
         gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
         MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
-        
-        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
 
-       // vSelf = gameObject;
+        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+        vStartPos = transform.localPosition;
+        vStartSizeRes = transform.localScale;   
+
+        vReturnSpeed = .03f;
+
+        // vSelf = gameObject;
 
         //Collider = GetComponent<SphereCollider>();    
     }
@@ -75,206 +87,257 @@ public class MBSResourceGuy : MonoBehaviour
     {
         FnFindBubble();
 
+
+
         if (isAttached)
         {
             if (GuyBubble.vSize < vBubbleNewSize)
 
             {
-                GuyBubble.vSize += vIncrement *Time.deltaTime;
+                GuyBubble.vSize += vIncrement * Time.deltaTime;
                 transform.localScale = vSizeStart;
-
+                
 
             }
 
-           vPosTmp = transform.localPosition;
+
+
+
+            vPosTmp = transform.localPosition;
 
             if (vPosTmp.magnitude > vCentreLimit)
             {
-                vPosTmp *= (1 - (vAttractionRate * Time.deltaTime)); 
+                vPosTmp *= (1 - (vAttractionRate * Time.deltaTime));
 
                 transform.localPosition = vPosTmp;
             }
 
+            //check for op only if attached to the bubble
            
+
+            if (BubblePop.isPopped)
+            {
+                
+                    gResourceParent = GameObject.FindWithTag("RParent").transform;
+
+                    transform.parent = gResourceParent;
+                    isReturning = true;
+                    isAttached = false;
+                transform.localScale = vStartSizeRes;
+
+                
+            }
 
 
         }
 
         if (isInBase)
         {
-            
+
             transform.parent = gBase;
             vResourceScore = 0;
 
-          //  Debug.Log("Gets closer");
+            //  Debug.Log("Gets closer");
             vPosTmp = transform.localPosition;
             vDist = vPosTmp.magnitude;
 
             if (vDist > vCentreLimit)
-                
+
             {
                 vPosTmp *= (1 - (vAttractionRate * Time.deltaTime));
 
                 transform.localPosition = vPosTmp;
-                transform.localScale = transform.localScale * (1- 0.05f * Time.deltaTime);
+                transform.localScale = transform.localScale * (1 - 0.05f * Time.deltaTime);
 
-             //   Debug.Log("Resource has to get closer" + vPosTmp + "    World  "   + gBase.position);
-                
+                //   Debug.Log("Resource has to get closer" + vPosTmp + "    World  "   + gBase.position);
+
             }
 
             else
             {
                 Debug.Log("Destroy");
-               gSprite.SetActive(false);
+                gSprite.SetActive(false);
                 gDissolve.SetActive(true);
-                Destroy(gameObject,5);
+                Destroy(gameObject, 5);
                 isInBase = false;
-              
+
 
             }
+
+
+
 
         }
 
 
-
-    }
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        vHitShow = other.transform;
-        vHitLayer = other.gameObject.layer;
-
-        gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
-        MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
-
-        GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
-        GuyBubble = FindFirstObjectByType<GuyBubble>().GetComponent<GuyBubble>();
-
-        SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
-
-        if (other.gameObject.layer == 8)
+        if (isReturning)
 
         {
-
-            Debug.Log("Base Hit");
-
-            GetComponent<Collider>().enabled = false;
+            //Drift back to start point
+            vPosTmp = ( vStartPos- transform.localPosition );
             
-           
-            GuyBubble = gBubble.GetComponent<GuyBubble>();
+            vDist = vPosTmp.magnitude;
 
-            isAttached = false;
-            isInBase = true;
-           
-            Debug.Log("Resource score is " + vResourceScore);
-            if (vResourceScore == 0)
-            { 
-                Debug.Log("Score Chnged");
-            }
+            if (vDist > vCentreLimit)
 
-         
-
-            if (GuyBubble == null)
             {
-                Debug.Log("No GuyBubble- why??");
+                vPosTmp  = vPosTmp.normalized;
+                    vPosTmp *= (1 - (vAttractionRate * Time.deltaTime));
+                vPosTmp *= vReturnSpeed;
+
+                transform.localPosition = transform.localPosition + vPosTmp;
+
+
+                //   Debug.Log("Resource has to get closer" + vPosTmp + "    World  "   + gBase.position);
+
             }
 
             else
             {
-                Debug.Log ("Size" + GuyBubble.vSize);
+                isReturning = false;
+
             }
-
-
-            GuyBubble.vSize = GuyBubble.vSize/(1+vSizeChange);
-            vBubbleNewSize = GuyBubble.vSize/(1+vSizeChange);
-
-            GuyBubble.vResourcesCarried = GuyBubble.vResourcesCarried - 1;
-
-            if (GuyBubble.vResourcesCarried < 0)
-            {
-                GuyBubble.vResourcesCarried = 0;
-            }
-            transform.parent = gBase;
-            GameManager.updateUI(vResourceScore, 0);
-            SFX.SoundDrop();
 
         }
-        
-        // if player touches the resource
-        else if (other.gameObject.layer == 6)
 
+
+
+
+
+    }
+
+    void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Current Parent " + transform.parent);
+            vHitShow = other.transform;
+            vHitLayer = other.gameObject.layer;
 
-            if (transform.parent.name == "ResourceParent")
+            gBase = FindFirstObjectByType<MBSBaseGuy>().transform;
+            MBSBubbleEnemyInteraction = FindFirstObjectByType<MBSBubbleEnemyInteraction>().GetComponent<MBSBubbleEnemyInteraction>();
+
+            GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
+            GuyBubble = FindFirstObjectByType<GuyBubble>().GetComponent<GuyBubble>();
+
+            SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
+
+            if (other.gameObject.layer == 8)
+
             {
-                SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
+
+                Debug.Log("Base Hit");
+
+                GetComponent<Collider>().enabled = false;
 
 
-                if (GuyBubble.vResourcesCarried == 0)
+                GuyBubble = gBubble.GetComponent<GuyBubble>();
+
+                isAttached = false;
+                isInBase = true;
+
+                Debug.Log("Resource score is " + vResourceScore);
+                if (vResourceScore == 0)
                 {
-                    GuyBubble.vResourcesCarried = 1;
-                    transform.parent = vSlot1;
+                    Debug.Log("Score Chnged");
+                }
 
-                    
-                    // Collider.enabled = false;
-                    isAttached = true;
-                    vBubbleNewSize = GuyBubble.vSize + vSizeChange;
-                    GuyBubble.vBlowTmp = new Vector3(1, 0, 0);
-                    GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
-                    SFX.SoundGrab();
+
+
+                if (GuyBubble == null)
+                {
+                    Debug.Log("No GuyBubble- why??");
+                }
+
+                else
+                {
+                    Debug.Log("Size" + GuyBubble.vSize);
+                }
+
+
+                GuyBubble.vSize = GuyBubble.vSize / (1 + vSizeChange);
+                vBubbleNewSize = GuyBubble.vSize / (1 + vSizeChange);
+
+                GuyBubble.vResourcesCarried = GuyBubble.vResourcesCarried - 1;
+
+                if (GuyBubble.vResourcesCarried < 0)
+                {
+                    GuyBubble.vResourcesCarried = 0;
+                }
+                transform.parent = gBase;
+                GameManager.updateUI(vResourceScore, 0);
+                SFX.SoundDrop();
+
+            }
+
+            // if player touches the resource
+            else if (other.gameObject.layer == 6)
+
+            {
+                Debug.Log("Current Parent " + transform.parent);
+
+                if (transform.parent.name == "ResourceParent")
+                {
+                    SFX = FindFirstObjectByType<SFX>().GetComponent<SFX>();
+
+
+                    if (GuyBubble.vResourcesCarried == 0)
+                    {
+                        GuyBubble.vResourcesCarried = 1;
+                        transform.parent = vSlot1;
+
+                        isReturning = false;
+
+                        // Collider.enabled = false;
+                        isAttached = true;
+                        vBubbleNewSize = GuyBubble.vSize + vSizeChange;
+                        GuyBubble.vBlowTmp = new Vector3(1, 0, 0);
+                        GuyBubble.vBlowTmpAtLastImpulse = new Vector3(1, 0, 0);
+                        SFX.SoundGrab();
+                    BubblePop = FindFirstObjectByType<BubblePop>();
 
                     Debug.Log("Checking for slots");
 
-                  /* if (GuyBubble.vResourcesCarried == 3)
-                    {
-                        MBSBubbleEnemyInteraction.FnBurst();
+                        /* if (GuyBubble.vResourcesCarried == 3)
+                          {
+                              MBSBubbleEnemyInteraction.FnBurst();
+
+                          }
+
+                          if (GuyBubble.vResourcesCarried == 2)
+                          {
+                              GuyBubble.vResourcesCarried = 3;
+                              transform.parent = vSlot3;
+
+                          }
+
+                          if (GuyBubble.vResourcesCarried == 1)
+                          {
+                              GuyBubble.vResourcesCarried = 2;
+                              transform.parent = vSlot2;
+
+                          }*/
+
+
 
                     }
 
-                    if (GuyBubble.vResourcesCarried == 2)
-                    {
-                        GuyBubble.vResourcesCarried = 3;
-                        transform.parent = vSlot3;
-
-                    }
-                  
-                    if (GuyBubble.vResourcesCarried == 1)
-                    {
-                        GuyBubble.vResourcesCarried = 2;
-                        transform.parent = vSlot2;
-
-                    }*/
-
-                    
-
-                    }
-                    
-                   
 
 
 
 
 
-                
+
+
+
+
+                }
+
+
+
 
 
             }
-
-
-            
-
-               
-
-
-            
-
-
         }
-    }
 
-   
 
+
+    
 }
