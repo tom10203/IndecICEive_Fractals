@@ -23,29 +23,36 @@ public class MBSBoundayLimits : MonoBehaviour
         if (!isGameOver)
         {
 
-            gBubble = FindFirstObjectByType<GuyBubble>().transform;
-            //boundary check
-            tmpPos = gBubble.transform.position;
+            if (FindFirstObjectByType<GuyBubble>() != null)
+            {
 
-            if (tmpPos.x > xUpperLimit)
-            {
-                tmpPos.x = xUpperLimit;
+                gBubble = FindFirstObjectByType<GuyBubble>().transform;
+
+
+                //boundary check
+                tmpPos = gBubble.transform.position;
+
+                if (tmpPos.x > xUpperLimit)
+                {
+                    tmpPos.x = xUpperLimit;
+                }
+
+                if (tmpPos.x < xLowerLimit)
+                {
+                    tmpPos.x = xLowerLimit;
+                }
+                if (tmpPos.y > yUpperLimit)
+                {
+                    tmpPos.y = yUpperLimit;
+                }
+                if (tmpPos.y < yLowerLimit)
+                {
+                    tmpPos.y = yLowerLimit;
+                }
+
+                gBubble.transform.position = tmpPos;
             }
 
-            if (tmpPos.x < xLowerLimit)
-            {
-                tmpPos.x = xLowerLimit;
-            }
-            if (tmpPos.y > yUpperLimit)
-            {
-                tmpPos.y = yUpperLimit;
-            }
-            if (tmpPos.y < yLowerLimit)
-            {
-                tmpPos.y = yLowerLimit;
-            }
-
-            gBubble.transform.position = tmpPos;
         }
     }
 }
