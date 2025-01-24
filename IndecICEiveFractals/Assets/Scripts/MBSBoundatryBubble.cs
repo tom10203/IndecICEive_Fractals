@@ -7,7 +7,7 @@ public class MBSBoundatryBubble : MonoBehaviour
 
     [SerializeField] Transform gBubble;
     [SerializeField] GuyBubble GuyBubble;
-    [SerializeField] float vDamageonWall = 10f;
+    //[SerializeField] float vDamageonWall = 10f;
 
 
     // Negative is a bounce in a direction
