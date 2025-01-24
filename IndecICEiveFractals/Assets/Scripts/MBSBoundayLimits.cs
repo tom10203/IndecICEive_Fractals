@@ -14,7 +14,7 @@ public class MBSBoundayLimits : MonoBehaviour
     public bool isGameOver = false;
     void Start()
     {
-        gBubble = FindFirstObjectByType<GuyBubble>().transform;
+      
     }
 
     // Update is called once per frame
@@ -22,6 +22,8 @@ public class MBSBoundayLimits : MonoBehaviour
     {
         if (!isGameOver)
         {
+
+            gBubble = FindFirstObjectByType<GuyBubble>().transform;
             //boundary check
             tmpPos = gBubble.transform.position;
 

@@ -46,7 +46,13 @@ public class GuyBubble : MonoBehaviour
     [SerializeField] MBSGameManagerGuy MBSGameManagerGuy;
     [SerializeField] MBSBubbleEnemyInteraction MBSBubbleEnemyInteraction;
     [SerializeField] GameManager GameManager;
+
+
+    //Sounds
     [SerializeField] BubblePop BubblePop;
+    [SerializeField] MBSBubbleSound MBSBubbleSound;
+    
+    [SerializeField] float vNoiseAdjust=10;
 
     // Collection/resource variables
     public float vSize=1;
@@ -68,18 +74,20 @@ public class GuyBubble : MonoBehaviour
         vInitialTranspart = GetComponent<Renderer>().material.color.a;
 
         GameManager = FindFirstObjectByType<GameManager>().GetComponent<GameManager>();
-        BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();   
+        BubblePop = FindFirstObjectByType<BubblePop>().GetComponent<BubblePop>();  
+        MBSBubbleSound = GetComponent<MBSBubbleSound>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        MBSBubbleSound.FnRusiningNoise(vBlowTmp.magnitude / vNoiseAdjust);
        
         // check to see if there is significant force on the bubble
         if (vBlowTmp.magnitude > vOscilLowerForceLimit )
         {
-            MBSGameManagerGuy.SoundJetonBubble();
+            //MBSGameManagerGuy.SoundJetonBubble();
             vOscilTimer = vOscilTimerMax;
             //FnDamage();
 
